@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "migrating. . . "
+Elixir.Micro.ReleaseTasks seed
+echo "migrated."
