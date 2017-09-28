@@ -101,4 +101,22 @@ defmodule Micro.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  @doc """
+  Gets a User.
+
+
+  Raises `Ecto.NoResultsError` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user_by_handle!(123)
+      %User{}
+
+      iex> get_user_by_handle!(456)
+      ** (Ecto.NoResultsError)
+  """
+  def get_user_by_handle!(handle) do
+    Repo.get_by(User, handle: handle)
+  end
 end
