@@ -16,7 +16,7 @@ defmodule MicroWeb.Router do
   scope "/", MicroWeb do
     pipe_through :browser # Use the default browser stack
     resources "/posts", PostController
-
+    resources "/users", UserController
     get "/", PageController, :index
   end
 
