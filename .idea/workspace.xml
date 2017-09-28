@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/micro_web/controllers/session_controller.ex" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/micro_web/micro_web/plugs.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro/accounts/accounts.ex" afterPath="$PROJECT_DIR$/lib/micro/accounts/accounts.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/router.ex" afterPath="$PROJECT_DIR$/lib/micro_web/router.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" />
-    </list>
+    <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,7 +18,7 @@
       <file leaf-file-name="app.html.eex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="280">
               <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding />
             </state>
@@ -444,12 +437,12 @@
       <workItem from="1506322630052" duration="598000" />
       <workItem from="1506354416729" duration="41000" />
       <workItem from="1506578860756" duration="599000" />
-      <workItem from="1506632504831" duration="3451000" />
+      <workItem from="1506632504831" duration="3492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4815000" />
+    <option name="totallyTimeSpent" value="4856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="987" y="24" width="925" height="1056" extended-state="4" />
@@ -596,7 +589,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="280">
           <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding />
         </state>
