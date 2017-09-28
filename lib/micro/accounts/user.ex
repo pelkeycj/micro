@@ -7,7 +7,8 @@ defmodule Micro.Accounts.User do
   schema "users" do
     field :bio, :string
     field :handle, :string
-    field :name, :string
+    field :name, :string 
+    #TODO: add posts, followers, following
 
     timestamps()
   end
@@ -16,7 +17,7 @@ defmodule Micro.Accounts.User do
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:name, :handle, :bio])
-    |> validate_required([:name, :handle, :bio])
+    |> validate_required([:name, :handle])
     |> unique_constraint(:handle)
   end
 end
