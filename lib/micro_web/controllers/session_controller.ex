@@ -7,7 +7,6 @@ defmodule MicroWeb.SessionController do
   """
   def login(conn, %{"handle" => handle}) do
     user = Accounts.get_user_by_handle!(handle)
-
     if user do
       conn
       |> put_session(:user_id, user.id)

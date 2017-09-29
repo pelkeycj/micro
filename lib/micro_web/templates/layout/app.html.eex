@@ -16,7 +16,7 @@
       <header class="header">
         <%= if @user do %>
             <span class="text-light">
-                <%= @user   .handle %> |
+                <%= @user.handle %> |
                 <%= link("logout", to: session_path(@conn, :logout), method: :delete) %>
             </span>
 
