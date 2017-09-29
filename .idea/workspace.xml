@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/controllers/session_controller.ex" afterPath="$PROJECT_DIR$/lib/micro_web/controllers/session_controller.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,11 +29,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="page_controller.ex" pinned="false" current-in-tab="true">
+          <file leaf-file-name="page_controller.ex" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/page_controller.ex">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="140">
-                  <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                  <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="brunch-config.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/brunch-config.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1240">
+                  <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -57,22 +65,6 @@
                 <state relative-caret-position="440">
                   <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="post.ex" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/micro/blog/post.ex">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-                  <folding>
-                    <marker date="1506726645301" expanded="true" signature="26:418" ph="do: ..." />
-                    <marker date="1506726645301" expanded="true" signature="35:46" ph="..." />
-                    <marker date="1506726645301" expanded="true" signature="56:70" ph="..." />
-                    <marker date="1506726645301" expanded="true" signature="79:94" ph="..." />
-                    <marker date="1506726645301" expanded="true" signature="312:414" ph="do: ..." />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -117,16 +109,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="show.html.eex" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -137,16 +119,16 @@
                 <state relative-caret-position="380">
                   <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
                   <folding>
-                    <marker date="1506726645301" expanded="true" signature="21:1822" ph="do: ..." />
-                    <marker date="1506726645301" expanded="true" signature="77:100" ph="..." />
-                    <marker date="1506726645301" expanded="true" signature="109:144" ph="..." />
-                    <marker date="1506726645301" expanded="true" signature="1009:1032" ph="do: ..." />
-                    <marker date="1506726645301" expanded="true" signature="1041:1241" ph="&quot;...&quot;" />
-                    <marker date="1506726645301" expanded="true" signature="1283:1350" ph="do: ..." />
-                    <marker date="1506726645301" expanded="true" signature="1359:1517" ph="&quot;...&quot;" />
-                    <marker date="1506726645301" expanded="true" signature="1552:1582" ph="do: ..." />
-                    <marker date="1506726645301" expanded="true" signature="1591:1745" ph="&quot;...&quot;" />
-                    <marker date="1506726645301" expanded="true" signature="1780:1818" ph="do: ..." />
+                    <marker date="1506727845242" expanded="true" signature="21:1822" ph="do: ..." />
+                    <marker date="1506727845242" expanded="true" signature="77:100" ph="..." />
+                    <marker date="1506727845242" expanded="true" signature="109:144" ph="..." />
+                    <marker date="1506727845242" expanded="true" signature="1009:1032" ph="do: ..." />
+                    <marker date="1506727845242" expanded="true" signature="1041:1241" ph="&quot;...&quot;" />
+                    <marker date="1506727845242" expanded="true" signature="1283:1350" ph="do: ..." />
+                    <marker date="1506727845242" expanded="true" signature="1359:1517" ph="&quot;...&quot;" />
+                    <marker date="1506727845242" expanded="true" signature="1552:1582" ph="do: ..." />
+                    <marker date="1506727845242" expanded="true" signature="1591:1745" ph="&quot;...&quot;" />
+                    <marker date="1506727845242" expanded="true" signature="1780:1818" ph="do: ..." />
                   </folding>
                 </state>
               </provider>
@@ -155,8 +137,8 @@
           <file leaf-file-name="app.html.eex" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+                <state relative-caret-position="280">
+                  <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -215,9 +197,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="55" />
-    <option name="y" value="-4" />
-    <option name="width" value="1865" />
-    <option name="height" value="1204" />
+    <option name="y" value="24" />
+    <option name="width" value="933" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -576,6 +558,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brunch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -697,16 +737,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15835000" />
+    <option name="totallyTimeSpent" value="15915000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="-4" width="1865" height="1204" extended-state="6" />
-    <editor active="true" />
+    <frame x="55" y="24" width="933" height="1176" extended-state="4" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15067025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24330118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33830383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -743,13 +782,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/micro_web/views/page_view.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/views/layout_view.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -857,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8098">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,13 +987,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding>
-            <marker date="1506726645301" expanded="true" signature="26:418" ph="do: ..." />
-            <marker date="1506726645301" expanded="true" signature="35:46" ph="..." />
-            <marker date="1506726645301" expanded="true" signature="56:70" ph="..." />
-            <marker date="1506726645301" expanded="true" signature="79:94" ph="..." />
-            <marker date="1506726645301" expanded="true" signature="312:414" ph="do: ..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,7 +1037,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1024,16 +1045,16 @@
         <state relative-caret-position="380">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
-            <marker date="1506726645301" expanded="true" signature="21:1822" ph="do: ..." />
-            <marker date="1506726645301" expanded="true" signature="77:100" ph="..." />
-            <marker date="1506726645301" expanded="true" signature="109:144" ph="..." />
-            <marker date="1506726645301" expanded="true" signature="1009:1032" ph="do: ..." />
-            <marker date="1506726645301" expanded="true" signature="1041:1241" ph="&quot;...&quot;" />
-            <marker date="1506726645301" expanded="true" signature="1283:1350" ph="do: ..." />
-            <marker date="1506726645301" expanded="true" signature="1359:1517" ph="&quot;...&quot;" />
-            <marker date="1506726645301" expanded="true" signature="1552:1582" ph="do: ..." />
-            <marker date="1506726645301" expanded="true" signature="1591:1745" ph="&quot;...&quot;" />
-            <marker date="1506726645301" expanded="true" signature="1780:1818" ph="do: ..." />
+            <marker date="1506727845242" expanded="true" signature="21:1822" ph="do: ..." />
+            <marker date="1506727845242" expanded="true" signature="77:100" ph="..." />
+            <marker date="1506727845242" expanded="true" signature="109:144" ph="..." />
+            <marker date="1506727845242" expanded="true" signature="1009:1032" ph="do: ..." />
+            <marker date="1506727845242" expanded="true" signature="1041:1241" ph="&quot;...&quot;" />
+            <marker date="1506727845242" expanded="true" signature="1283:1350" ph="do: ..." />
+            <marker date="1506727845242" expanded="true" signature="1359:1517" ph="&quot;...&quot;" />
+            <marker date="1506727845242" expanded="true" signature="1552:1582" ph="do: ..." />
+            <marker date="1506727845242" expanded="true" signature="1591:1745" ph="&quot;...&quot;" />
+            <marker date="1506727845242" expanded="true" signature="1780:1818" ph="do: ..." />
           </folding>
         </state>
       </provider>
@@ -1053,7 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,15 +1120,23 @@
     <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/page_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+        <state relative-caret-position="400">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/brunch-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
