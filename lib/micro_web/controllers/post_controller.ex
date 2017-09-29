@@ -63,7 +63,8 @@ defmodule MicroWeb.PostController do
   defp assign_user(conn, _opts) do
     case conn.params do
       %{"user_id" => user_id} ->
-        user = Repo.get(Micro.Accounts.User, user_id)
+        #user = Repo.get(Micro.Accounts.User, user_id)
+        user = Micro.Accounts.get_user!(user_id)
         assign(conn, :user, user)
       _ ->
         conn

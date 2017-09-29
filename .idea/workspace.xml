@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro/accounts/user.ex" afterPath="$PROJECT_DIR$/lib/micro/accounts/user.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro/blog/post.ex" afterPath="$PROJECT_DIR$/lib/micro/blog/post.ex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex" afterPath="$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/router.ex" afterPath="$PROJECT_DIR$/lib/micro_web/router.ex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/post/edit.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/post/edit.html.eex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/post/index.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/post/index.html.eex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,51 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20170921214148_create_posts.exs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/priv/repo/migrations/20170921214148_create_posts.exs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20170929193631_add_user_id_to_posts.exs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/priv/repo/migrations/20170929193631_add_user_id_to_posts.exs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.ex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/micro/accounts/user.ex">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20170928002558_create_users.exs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/priv/repo/migrations/20170928002558_create_users.exs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.ex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/micro/blog/post.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -83,8 +44,58 @@
       <file leaf-file-name="blog.ex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/micro/blog/blog.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1156">
+            <state relative-caret-position="0">
               <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/edit.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/index.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="21" column="62" lean-forward="false" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="86" lean-forward="false" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/form.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -93,8 +104,18 @@
       <file leaf-file-name="post_controller.ex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+            <state relative-caret-position="624">
+              <caret line="58" column="53" lean-forward="true" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accounts.ex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/micro/accounts/accounts.ex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,6 +146,10 @@
         <option value="$PROJECT_DIR$/lib/micro/blog/post.ex" />
         <option value="$PROJECT_DIR$/lib/micro/accounts/user.ex" />
         <option value="$PROJECT_DIR$/lib/micro_web/router.ex" />
+        <option value="$PROJECT_DIR$/lib/micro_web/templates/post/index.html.eex" />
+        <option value="$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex" />
+        <option value="$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex" />
+        <option value="$PROJECT_DIR$/lib/micro_web/templates/post/edit.html.eex" />
         <option value="$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex" />
       </list>
     </option>
@@ -623,7 +648,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6161000" />
+    <option name="totallyTimeSpent" value="6953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1865" height="1204" extended-state="6" />
@@ -668,28 +693,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/session_controller.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/static/images/mu.png" />
-    <entry file="file://$PROJECT_DIR$/lib/micro_web/views/layout_view.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/micro_web/views/page_view.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/router.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -834,13 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/session_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -950,14 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/micro/accounts/accounts.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/micro_web/plugs.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -976,7 +964,7 @@
     <entry file="file://$PROJECT_DIR$/priv/repo/migrations/20170921214148_create_posts.exs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1000,7 +988,7 @@
     <entry file="file://$PROJECT_DIR$/lib/micro/accounts/user.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1015,16 +1003,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro/blog/blog.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
+        <state relative-caret-position="0">
           <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/show.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="62" lean-forward="false" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/new.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="86" lean-forward="false" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/edit.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro_web/templates/post/form.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/micro/accounts/accounts.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+        <state relative-caret-position="624">
+          <caret line="58" column="53" lean-forward="true" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
           <folding />
         </state>
       </provider>
