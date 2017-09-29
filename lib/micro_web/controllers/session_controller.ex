@@ -2,8 +2,6 @@ defmodule MicroWeb.SessionController do
   use MicroWeb, :controller
   alias Micro.Accounts
 
-  
-
   @doc """
     Logs a user in.
   """
