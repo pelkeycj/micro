@@ -2,8 +2,7 @@ defmodule MicroWeb.SessionController do
   use MicroWeb, :controller
   alias Micro.Accounts
 
-  #TODO redirect login to user home page
-  #TODO redirect logout to home page (welcome page?)
+  
 
   @doc """
     Logs a user in.

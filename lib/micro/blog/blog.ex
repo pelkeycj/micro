@@ -17,8 +17,8 @@ defmodule Micro.Blog do
       [%Post{}, ...]
 
   """
-  def list_posts do
-    Repo.all(Post)
+  def list_posts(user) do
+    Repo.all(Ecto.assoc(user, :posts))
   end
 
   @doc """
@@ -35,7 +35,10 @@ defmodule Micro.Blog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post!(user, id) do
+    Repo.get!(Ecto.assoc(user, :posts), id)
+
+  end
 
   @doc """
   Creates a post.
@@ -49,10 +52,16 @@ defmodule Micro.Blog do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_post(attrs \\ %{}) do
-    %Post{}
+  def create_post(user, attrs \\ %{}) do
+    changeset =
+    user
+    |> Ecto.build_assoc(:posts)
     |> Post.changeset(attrs)
     |> Repo.insert()
+
+   # %Post{}
+   # |> Post.changeset(attrs)
+   # |> Repo.insert()
   end
 
   @doc """
