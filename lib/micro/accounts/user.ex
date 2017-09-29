@@ -7,8 +7,9 @@ defmodule Micro.Accounts.User do
   schema "users" do
     field :bio, :string
     field :handle, :string
-    field :name, :string 
-    #TODO: add posts, followers, following
+    field :name, :string
+    has_many :posts, Micro.Blog.Post
+    #TODO:followers, following
 
     timestamps()
   end

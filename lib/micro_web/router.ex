@@ -18,8 +18,12 @@ defmodule MicroWeb.Router do
   scope "/", MicroWeb do
     pipe_through :browser # Use the default browser stack
     get "/", PageController, :index
-    resources "/posts", PostController
-    resources "/users", UserController
+
+    # associate posts with users
+    resources "/users", UserController do
+      resources "/posts", PostController
+    end
+
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout
   end

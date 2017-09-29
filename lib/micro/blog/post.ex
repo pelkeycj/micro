@@ -8,7 +8,7 @@ defmodule Micro.Blog.Post do
     field :body, :string
     field :tags, :string
     field :title, :string
-    #TODO add author -> not null 
+    belongs_to :user, Micro.Accounts.User
 
     timestamps()
   end
