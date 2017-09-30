@@ -18,7 +18,7 @@ defmodule Micro.Blog do
 
   """
   def list_posts(user) do
-    Repo.all(Ecto.assoc(user, :posts))
+      Repo.all(Ecto.assoc(user, :posts))
   end
 
   @doc """

@@ -6,10 +6,9 @@ defmodule MicroWeb.Plugs do
     user_id = get_session(conn, :user_id)
     if user_id do
       user = Micro.Accounts.get_user!(user_id)
-      assign(conn, :user, user)
+      assign(conn, :current_user, user)
     else
-      assign(conn, :user, nil)
+      assign(conn, :current_user, nil)
     end
   end
-
 end

@@ -4,11 +4,20 @@ defmodule MicroWeb.PostController do
   alias Micro.Blog
   alias Micro.Blog.Post
 
+  plug :assign_user
   plug :authorize_user when action in [:new, :create, :update, :edit, :delete]
 
   def index(conn, _params) do
-    posts = Blog.list_posts(conn.assigns[:user])
-    render(conn, "index.html", posts: posts)
+    user = conn.assigns[:user]
+    if user do
+      posts = Blog.list_posts(user)
+      render(conn, "index.html", posts: posts)
+    else
+      conn
+      |> put_flash(:error, "Invalid user")
+      |> redirect(to: user_path(conn, :index))
+    end
+
   end
 
   def new(conn, _params) do
@@ -81,12 +90,14 @@ defmodule MicroWeb.PostController do
   end
 
   defp authorize_user(conn, _opts) do
-    user = get_session(conn, :user)
-    if user && Integer.to_string(user.id) == conn.params["user_id"] do
+    user = conn.assigns[:user]
+    current_user = conn.assigns[:current_user]
+    #if user && Integer.to_string(user.id) == conn.params["user_id"] do
+    if current_user && current_user.id == user.id do
       conn
     else
       conn
-      |> put_flash(:error, "Unauthorized post access")
+      |> put_flash(:error, "Unauthorized access of posts")
       |> redirect(to: page_path(conn, :index))
     end
   end

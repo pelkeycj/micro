@@ -14,9 +14,9 @@
   <body>
     <div class="container">
       <header class="header">
-        <%= if @user do %>
+        <%= if @current_user do %>
             <span class="text-light">
-                <%= @user.handle %> |
+                <%= @current_user.handle %> |
                 <%= link("logout", to: session_path(@conn, :logout), method: :delete) %>
             </span>
 
