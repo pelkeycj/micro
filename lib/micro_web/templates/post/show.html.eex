@@ -12,11 +12,6 @@
     <%= @post.body %>
   </li>
 
-  <li>
-    <strong>Tags:</strong>
-    <%= @post.tags %>
-  </li>
-
 </ul>
 
 <span><%= link "Edit", to: user_post_path(@conn, :edit, @user, @post) %></span>

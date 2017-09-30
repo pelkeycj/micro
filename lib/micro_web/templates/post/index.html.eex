@@ -5,8 +5,6 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
-      <th>Tags</th>
-
       <th></th>
     </tr>
   </thead>
@@ -15,7 +13,6 @@
     <tr>
       <td><%= post.title %></td>
       <td><%= post.body %></td>
-      <td><%= post.tags %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: user_post_path(@conn, :show, @user, post), class: "btn btn-default btn-xs" %></span>

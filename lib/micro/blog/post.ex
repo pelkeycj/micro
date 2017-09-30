@@ -6,7 +6,6 @@ defmodule Micro.Blog.Post do
 
   schema "posts" do
     field :body, :string
-    field :tags, :string
     field :title, :string
     belongs_to :user, Micro.Accounts.User
 
@@ -16,7 +15,7 @@ defmodule Micro.Blog.Post do
   @doc false
   def changeset(%Post{} = post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :tags])
+    |> cast(attrs, [:title, :body])
     |> validate_required([:title, :body])
   end
 end
