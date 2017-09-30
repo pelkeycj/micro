@@ -18,7 +18,7 @@
             <span class="text-light">
                 <%= @current_user.handle %> |
                 <%= link("logout", to: session_path(@conn, :logout), method: :delete) %>
-            </span>
+            </span> 
 
             <% else %>
             <%= form_for @conn, session_path(@conn, :login),
