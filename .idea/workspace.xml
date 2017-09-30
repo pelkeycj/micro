@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro/blog/blog.ex" afterPath="$PROJECT_DIR$/lib/micro/blog/blog.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex" afterPath="$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/micro_web/plugs.ex" afterPath="$PROJECT_DIR$/lib/micro_web/micro_web/plugs.ex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" afterPath="$PROJECT_DIR$/lib/micro_web/templates/layout/app.html.eex" />
-    </list>
+    <list default="true" id="ff9cb209-de59-42e8-8b1e-6d2c563cc910" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -87,7 +81,7 @@
             <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="501">
-                  <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+                  <caret line="95" column="47" lean-forward="false" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -674,7 +668,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20535000" />
+    <option name="totallyTimeSpent" value="20680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1865" height="1204" extended-state="6" />
@@ -1068,7 +1062,7 @@
     <entry file="file://$PROJECT_DIR$/lib/micro_web/controllers/post_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
-          <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+          <caret line="95" column="47" lean-forward="false" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
           <folding />
         </state>
       </provider>
