@@ -1,13 +1,15 @@
 
 <%= for post <- @posts do %>
+
         <div class="row mt-5">
-            <div class="col-md-6 mx-auto">
-                <div class="card bg-light mb-3">
+            <div class="col-md-8 mx-auto">
+                <div class="card bg-light">
                     <div class="card-header">
                         <a class="card-tag" href="<%= user_path(@conn, :show, @user)%>">
                             @<%= @user.handle %> </a>
                     </div>
                     <div class="card-body">
+                        <a class="card-tag" href="<%= user_post_path(@conn, :show, @user, post) %>"><h5 class="text-center"><strong> <%= post.title %> </strong></h4></a>
                         <p><%= post.body %></p>
                     </div>
 

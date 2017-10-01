@@ -1,4 +1,6 @@
-<h2>Edit User</h2>
+<div class="col-md-12">
+    <h1 class="text-center">edit user</h1>
+</div>
 
 <%= render "form.html", Map.put(assigns, :action, user_path(@conn, :update, @user)) %>
 
