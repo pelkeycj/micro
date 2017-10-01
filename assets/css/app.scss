@@ -33,3 +33,18 @@
   width: 100%;
 }
 
+
+.btn {
+  border-radius: 25px;
+  background-color: #FFF;
+}
+
+#delete-account {
+  color: red;
+  border-color: red;
+}
+
+#delete-account:hover {
+  color: white;
+  background-color: red;
+}
