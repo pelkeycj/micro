@@ -9,18 +9,10 @@
 
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-8">
                     <h4 class="font-weight-bold"><%= @user.name %></h4>
                 </div>
-                <div class="col-md-2">
-                    <%= if @current_user && @current_user.id == @user.id do %>
-                        <!-- <button type="button" class="btn btn-sm btn-primary">edit</button>
-                        -->
-                        <%= link("edit", to: user_path(@conn, :edit, @user), class: "btn btn-sm btn-primary") %>
-                    <% else %>
-                        <button type="button" class="btn btn-sm btn-primary">follow</button>
-                    <% end %>
-                </div>
+
             </div>
 
             <div class="row">
@@ -28,7 +20,15 @@
                     <p class="align-middle">@<%= @user.handle %></p>
                 </div>
             </div>
-
+            <div class="row mb-2">
+            <div class="col-md-2">
+                <%= if @current_user && @current_user.id == @user.id do %>
+                    <%= link("edit", to: user_path(@conn, :edit, @user), class: "btn btn-sm btn-primary") %>
+                <% else %>
+                    <button type="button" class="btn btn-sm btn-primary">follow</button>
+                <% end %>
+            </div>
+            </div>
             <!-- FOLLOWERS NOT IMPLEMENTED YET
             <div class="row">
                 <div class="col-md-4">
