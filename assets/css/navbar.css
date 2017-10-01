@@ -1,0 +1,41 @@
+#main-nav {
+    background-color: lightseagreen;
+}
+
+.inputbar {
+    border-radius: 15px;
+}
+
+
+.form-center {
+    margin: auto;
+    align-content: center;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+.navbar-brand {
+    width: 20%;
+}
+
+.nav-item {
+    float: right;
+}
+
+.navbar-nav > li > a > strong {
+    color: white;
+}
+
+.navbar-nav > li > a > strong:hover {
+    color: black;
+}
+
+.navbar-brand > strong {
+    color: white;
+}
+
+.navbar-brand > strong:hover {
+    color: black;
+}
