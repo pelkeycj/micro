@@ -93,7 +93,6 @@ defmodule MicroWeb.PostController do
   defp authorize_user(conn, _opts) do
     user = conn.assigns[:user]
     current_user = conn.assigns[:current_user]
-    #if user && Integer.to_string(user.id) == conn.params["user_id"] do
     if current_user && current_user.id == user.id do
       conn
     else
