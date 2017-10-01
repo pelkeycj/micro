@@ -39,3 +39,8 @@
 .navbar-brand > strong:hover {
     color: black;
 }
+
+
+a.post-nav  {
+    color: black;
+}

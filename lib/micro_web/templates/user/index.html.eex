@@ -1,28 +1,35 @@
-<h2>Listing Users</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Handle</th>
-      <th>Bio</th>
+<div class="row mb-5">
+    <div class="col-md-12 m-auto">
+        <h1 class="text-center">explore</h1>
+    </div>
+</div>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<!-- TODO: only show users that aren't followed
+            add posts explore page: will require additional functions
+            only show posts from not followed users -->
+
+  <!-- NAV TABS -->
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active post-nav" href="<%= user_path(@conn, :index)%>">people</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link post-nav" href="#">posts</a>
+        </li>
+    </ul>
+
 <%= for user <- @users do %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.handle %></td>
-      <td><%= user.bio %></td>
+        <div class="card bg-light mx-auto mt-4">
+           <!-- <img class="card-img-top" src="res/profile-stock.png" alt="profile image"> -->
+            <div class="card-header">
+                <a class="card-tag" href="<%= user_path(@conn, :show, user) %>"> @<%= user.handle %></a>
+            </div>
+            <div class="card-body">
+                <h4 class="text-center"> <%= user.name %></h4>
+                <p class="card-text"> <%= user.bio %></p>
+            </div>
+        </div>
 
-      <td class="text-right">
-        <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
 <% end %>
-  </tbody>
-</table>
+

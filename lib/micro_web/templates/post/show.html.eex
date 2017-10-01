@@ -1,7 +1,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-2">
-                    <h4 class="font-weight-bold"><%= @user.name %></h4>
+                   <h4 class="font-weight-bold"><%= @user.name %></h4>
                 </div>
                 <div class="col-md-2">
                     <%= if @current_user && @current_user.id == @user.id do %>
@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <p class="align-middle">@<%= @user.handle %></p>
+                    <a href="<%= user_path(@conn, :show, @user) %>" class="align-middle card-tag">@<%= @user.handle %></a>
                 </div>
             </div>
 
