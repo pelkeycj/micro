@@ -3,15 +3,15 @@ defmodule Micro.Repo.Migrations.CreateRelationships do
 
   def change do
     create table(:relationships) do
-      add :follower_id, references(:users) # (user who follows)
-      add :followed_id, references(:users) # (user who is followed)
+      add :follower_id, references(:users, on_delete: :delete_all) # (user who follows)
+      add :following_id, references(:users, on_delete: :delete_all ) # (user who is followed)
 
       timestamps()
     end
     # add indices
     create index :relationships, :follower_id
-    create index :relationships, :followed_id
-    create unique_index(:relationships, [:follower_id, :followed_id])
+    create index :relationships, :following_id
+    create unique_index(:relationships, [:follower_id, :following_id])
 
 
   end
