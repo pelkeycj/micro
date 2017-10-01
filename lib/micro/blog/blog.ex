@@ -53,7 +53,7 @@ defmodule Micro.Blog do
 
   """
   def create_post(user, attrs \\ %{}) do
-    changeset =
+   # changeset =
     user
     |> Ecto.build_assoc(:posts)
     |> Post.changeset(attrs)

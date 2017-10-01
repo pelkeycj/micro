@@ -1,23 +1,62 @@
-<h2>Show User</h2>
 
-<ul>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </li>
+<div class="row ml-4">
+        <!-- PHOTO NOT IMPLEMENTED YET
+        <div class="col-md-4 text-center">
+            <img class="rounded mx-auto d-block user-photo" src="res/profile-stock.png" width="200" height="200" alt="profile photo">
+        </div>
+        -->
 
-  <li>
-    <strong>Handle:</strong>
-    <%= @user.handle %>
-  </li>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2">
+                    <h4 class="font-weight-bold"><%= @user.name %></h4>
+                </div>
+                <div class="col-md-2">
+                    <%= if @current_user && @current_user.id == @user.id do %>
+                        <!-- <button type="button" class="btn btn-sm btn-primary">edit</button>
+                        -->
+                        <%= link("edit", to: user_path(@conn, :edit, @user), class: "btn btn-sm btn-primary") %>
+                    <% else %>
+                        <button type="button" class="btn btn-sm btn-primary">follow</button>
+                    <% end %>
+                </div>
+            </div>
 
-  <li>
-    <strong>Bio:</strong>
-    <%= @user.bio %>
-  </li>
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="align-middle">@<%= @user.handle %></p>
+                </div>
+            </div>
 
-</ul>
+            <!-- FOLLOWERS NOT IMPLEMENTED YET
+            <div class="row">
+                <div class="col-md-4">
+                    <p id="num-followers">345 followers</p>
+                </div>
+                <div class="col-md-4">
+                    <p id="num-following">12 following</p>
+                </div>
+            </div>
+            -->
 
-<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
-<span><%= link "Back", to: user_path(@conn, :index) %></span>
+            <div class="row">
+                <div class="col-md-8">
+                    <p><%= @user.bio %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Posts -->
+        <nav class="mt-5 clear-nav">
+            <ul class="nav nav-tabs justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active post-nav" href="#">posts</a>
+                </li>
+
+            </ul>
+        </nav>
+
+
+<%= render MicroWeb.PostView, "index.html", [conn: @conn, posts: Micro.Blog.list_posts(@user), user: @user] %>

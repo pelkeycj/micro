@@ -18,7 +18,6 @@ defmodule MicroWeb.UserController do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -54,6 +53,7 @@ defmodule MicroWeb.UserController do
     {:ok, _user} = Accounts.delete_user(user)
 
     conn
+    |> put_session(:user_id, nil)
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
   end
