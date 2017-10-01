@@ -1,9 +1,9 @@
 
 
 <div class="row ml-4">
-        <!--
+        <!-- PHOTO NOT IMPLEMENTED YET
         <div class="col-md-4 text-center">
-            <img class="rounded mx-auto d-block" src="<%= static_path(@conn, "/images/profile-stock.png") %>" width="200" height="200" alt="profile photo">
+            <img class="rounded mx-auto d-block user-photo" src="res/profile-stock.png" width="200" height="200" alt="profile photo">
         </div>
         -->
 

@@ -64,12 +64,13 @@ defmodule MicroWeb.PostController do
   end
 
   def delete(conn, %{"id" => id}) do
-    post = Blog.get_post!(conn.assigns[:user], id)
+    user = conn.assigns[:user]
+    post = Blog.get_post!(user, id)
     {:ok, _post} = Blog.delete_post(post)
 
     conn
     |> put_flash(:info, "Post deleted successfully.")
-    |> redirect(to: user_post_path(conn, :index, conn.assigns[:user]))
+    |> redirect(to: user_path(conn, user))
   end
 
   defp assign_user(conn, _opts) do

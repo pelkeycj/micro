@@ -39,12 +39,12 @@
   background-color: #FFF;
 }
 
-#delete-account {
+#delete-account, #delete-post {
   color: red;
   border-color: red;
 }
 
-#delete-account:hover {
+#delete-account:hover, #delete-post:hover {
   color: white;
   background-color: red;
 }
