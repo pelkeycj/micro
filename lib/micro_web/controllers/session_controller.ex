@@ -11,7 +11,7 @@ defmodule MicroWeb.SessionController do
       conn
       |> put_session(:user_id, user.id)
       |> put_flash(:info, "Logged in as #{user.name}")
-      |> redirect(to: user_path(conn, :index))
+      |> redirect(to: user_path(conn, :show, user))
     else
       conn
       |> put_session(:user_id, nil)
