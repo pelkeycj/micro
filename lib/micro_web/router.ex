@@ -20,9 +20,13 @@ defmodule MicroWeb.Router do
     get "/", PageController, :index
 
     # associate posts with users
+    # TODO associate relations with users??
     resources "/users", UserController do
       resources "/posts", PostController
     end
+
+    post "/relationships", RelationshipController, :follow
+    delete "/relationships", RelationshipController, :unfollow
 
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout

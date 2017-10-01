@@ -119,4 +119,47 @@ defmodule Micro.Accounts do
   def get_user_by_handle!(handle) do
     Repo.get_by(User, handle: handle)
   end
+
+  @doc """
+    Creates a follow relationship between two Users.
+
+    ## Examples
+
+      iex> create_relationship(%{field: value})
+          %Relationship{}
+  """
+  def create_relationship(attrs) do
+    %Relationship{}
+    |> Relationship.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+    Deletes a Relationship.
+
+      ## Examples
+
+      iex> delete_relationship(relationship)
+      {:ok, %Relationship{}}
+
+      iex> delete_relationship(relationship)
+      {:error, %Ecto.Changeset{}}
+  """
+  def delete_relationship(%Relationship{} = relationship) do
+    Repo.delete(relationship)
+  end
+
+  @doc """
+    Gets a Relationship.
+  """
+  def get_relationship(follower_id, following_id) do
+    query = from r in :relationships, where r.follower_id == follower_id
+                                      and r.following_id == following_id, select: r
+
+    Repo.get(query)
+  end
+
+  #TODO get followers
+  #TODO get followings
+
 end
