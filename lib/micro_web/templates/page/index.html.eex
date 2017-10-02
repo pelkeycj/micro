@@ -1,3 +1,5 @@
 <div class="jumbotron">
   <h1 class="text-center">welcome to micro</h2>
+  <h3 class="text-center">a micro blogging app built with elixir/phoenix</h3>
 </div>
+
