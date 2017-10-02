@@ -15,7 +15,7 @@ defmodule MicroWeb.SessionController do
       conn
       |> put_session(:user_id, nil)
       |> put_flash(:error, "Handle does not exist.")
-      |> redirect(to: user_path(conn, :index))
+      |> redirect(to: page_path(conn, :index))
     end
   end
 
@@ -25,7 +25,7 @@ defmodule MicroWeb.SessionController do
   def logout(conn, _params) do
     conn
     |> put_session(:user_id, nil)
-    |> redirect(to: user_path(conn, :index))
+    |> redirect(to: page_path(conn, :index))
   end
 
 

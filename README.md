@@ -22,3 +22,7 @@ Submission requirements:
             explore users that they don't follow and posts from those people. The explore page
             displays items in random order. Users can see their followers/following by viewing their profile page 
             and then clicking on the number of followers/following that they have.
+            
+  
+Note: The explore page currently shows all users in system and all posts in system.
+        The filtering needs to be fixed to allow only strangers to show up.

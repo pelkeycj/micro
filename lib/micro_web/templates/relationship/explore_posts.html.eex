@@ -10,7 +10,7 @@
         <li class="nav-item">
             <%= if @current_user do %>
                 <a class="nav-link post-nav" href="<%= relationship_path(@conn, :index, view: "explore_users", user: @current_user)%>">people</a>
-            <%= else %>
+            <% else %>
                 <a class="nav-link post-nav" href="<%= relationship_path(@conn, :index, view: "explore_posts") %>">people</a>
             <% end %>
         </li>

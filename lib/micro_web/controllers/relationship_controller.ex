@@ -59,13 +59,17 @@ defmodule MicroWeb.RelationshipController do
 
 
       "explore_users" ->
-        strangers = Accounts.get_strangers(user)
+        #TODO fix
+        #strangers = Accounts.get_strangers(user)
+        #strangers = Enum.shuffle(strangers)
+        strangers = Accounts.list_users()
         strangers = Enum.shuffle(strangers)
         user = Accounts.get_user!(user)
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->
-        strangers = Accounts.get_strangers(user)
+       # strangers = Accounts.get_strangers(user)
+        strangers = Accounts.list_users()
         posts = Blog.get_posts_for_users(strangers)
         posts = Enum.shuffle(posts)
         user = Accounts.get_user!(user)

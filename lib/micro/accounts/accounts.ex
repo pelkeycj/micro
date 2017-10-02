@@ -203,7 +203,7 @@ defmodule Micro.Accounts do
   """
   def get_strangers(user_id) do
     Repo.all(from r in Relationship,
-             where: r.follower_id != ^user_id and r.following_id != ^user_id,
+             where: r.follower_id != ^user_id,
              select: r.following_id)
     |> Enum.dedup()
     |> Enum.reject(fn x -> x == user_id end)
