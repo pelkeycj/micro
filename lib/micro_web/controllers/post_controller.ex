@@ -32,7 +32,6 @@ defmodule MicroWeb.PostController do
     case Blog.create_post(conn.assigns[:user], post_params) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "Post created successfully.")
         |> redirect(to: user_post_path(conn, :show, conn.assigns[:user], post))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -56,7 +55,6 @@ defmodule MicroWeb.PostController do
     case Blog.update_post(post, post_params) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: user_post_path(conn, :show, conn.assigns[:user], post))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset)
@@ -69,7 +67,6 @@ defmodule MicroWeb.PostController do
     {:ok, _post} = Blog.delete_post(post)
 
     conn
-    |> put_flash(:info, "Post deleted successfully.")
     |> redirect(to: user_path(conn, user))
   end
 

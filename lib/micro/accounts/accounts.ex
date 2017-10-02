@@ -159,8 +159,44 @@ defmodule Micro.Accounts do
         select: r)
   end
 
+  @doc """
+    Gets the followers of the given user as a list of Users.
+  """
+  def get_followers(user_id) do
+    Repo.all(from r in Relationship,
+             order_by: r.inserted_at,
+             where: r.following_id == ^user_id,
+             select: r.follower_id)
+    |> Enum.map(fn x ->
+        get_user!(x) end)
+  end
 
-  #TODO get followers
-  #TODO get followings
+  @doc """
+    Gets the followings of the given user as a list of Users.
+  """
+  def get_followings(user_id) do
+    Repo.all(from r in Relationship,
+             order_by: r.inserted_at,
+             where: r.follower_id == ^user_id,
+             select: r.following_id)
+    |> Enum.map( fn x -> get_user!(x) end)
+  end
+
+  @doc """
+    Counts the number of followers a user has.
+  """
+  def follower_count(user_id) do
+    get_followers(user_id)
+    |> Enum.count()
+  end
+
+  @doc """
+    Counts the number of followings a user has.
+  """
+  def following_count(user_id) do
+    get_followings(user_id)
+    |> Enum.count()
+  end
+
 
 end

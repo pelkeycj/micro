@@ -27,6 +27,7 @@ defmodule MicroWeb.Router do
 
     post "/relationships", RelationshipController, :follow
     delete "/relationships", RelationshipController, :unfollow
+    resources "/relationships", RelationshipController
 
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout

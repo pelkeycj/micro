@@ -110,4 +110,15 @@ defmodule Micro.Blog do
   def change_post(%Post{} = post) do
     Post.changeset(post, %{})
   end
+
+  @doc """
+    Gets a list of posts by all the given users
+  """
+  def get_posts_for_users(users) do
+    users
+    |> Enum.flat_map(fn x -> list_posts(x)  end)
+  end
+
+  #TODO sort?
+
 end

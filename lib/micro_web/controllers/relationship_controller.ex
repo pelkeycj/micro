@@ -1,7 +1,7 @@
 defmodule MicroWeb.RelationshipController do
   use MicroWeb, :controller
 
-  alias Micro.Accounts
+  alias Micro.{Accounts, Blog}
   alias Micro.Accounts.User
 
   @doc """
@@ -14,11 +14,9 @@ defmodule MicroWeb.RelationshipController do
             following_id: user.id}) do
       {:ok, _relationship} ->
         conn
-        |> put_flash(:info, "Following #{user.handle}")
         |> redirect(to: user_path(conn, :show, user))
       {:error, _changeset} ->
         conn
-        |> put_flash(:error, "Something went wrong.")
         |> redirect(to: user_path(conn, :show, user))
     end
   end
@@ -33,10 +31,40 @@ defmodule MicroWeb.RelationshipController do
 
     user = Accounts.get_user!(user)
     conn
-    |> put_flash(:info, "Unfollowed #{user.handle}")
     |> redirect(to: user_path(conn, :show, user))
   end
 
 
-  # TODO index based on param (followers, followings)?
+  @doc """
+    Displays views dependent on relationships.
+    Views include: follower list, following list, home page,
+    and explore posts
+
+  """
+  def index(conn, %{"view" => view, "user" => user}) do
+    case view do
+      :followers ->
+        followers = Accounts.get_followers(user.id)
+        render(conn, "index.html", header: "followers", users: followers)
+
+      :followings ->
+        followings = Accounts.get_followings(user.id)
+        render(conn, "index.html", header: "following", users: followings)
+
+      :home ->
+        followings = Accounts.get_followings(user.id)
+        posts = Blog.get_posts_for_users(followings)
+        render(conn, "home.html", posts: posts)
+
+
+      #:explore_posts ->
+
+      #:explore_users ->
+
+      _->
+        conn
+        |> redirect(to: user_path(conn, :show, user))
+
+    end
+  end
 end
