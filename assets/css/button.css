@@ -1,0 +1,24 @@
+.btn {
+    border-radius: 25px;
+    background-color: #FFF;
+}
+
+.btn-primary {
+    color: lightseagreen;
+    border-color: lightseagreen;
+}
+
+.btn-primary:hover {
+    background-color: lightseagreen;
+    border-color: lightseagreen;
+}
+
+#delete-account, #delete-post {
+    color: red;
+    border-color: red;
+}
+
+#delete-account:hover, #delete-post:hover {
+    color: white;
+    background-color: red;
+}
