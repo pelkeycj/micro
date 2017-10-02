@@ -6,7 +6,7 @@ defmodule Micro.Accounts do
   import Ecto.Query, warn: false
   alias Micro.Repo
 
-  alias Micro.Accounts.User
+  alias Micro.Accounts.{User, Relationship}
 
   @doc """
   Returns the list of users.
@@ -145,19 +145,20 @@ defmodule Micro.Accounts do
       iex> delete_relationship(relationship)
       {:error, %Ecto.Changeset{}}
   """
-  def delete_relationship(%Relationship{} = relationship) do
+  def delete_relationship(relationship) do
     Repo.delete(relationship)
   end
+
 
   @doc """
     Gets a Relationship.
   """
   def get_relationship(follower_id, following_id) do
-    query = from r in :relationships, where r.follower_id == follower_id
-                                      and r.following_id == following_id, select: r
-
-    Repo.get(query)
+    Repo.one(from r in Relationship,
+        where: r.follower_id == ^follower_id and r.following_id == ^following_id,
+        select: r)
   end
+
 
   #TODO get followers
   #TODO get followings

@@ -25,7 +25,12 @@
                 <%= if @current_user && @current_user.id == @user.id do %>
                     <%= link("edit", to: user_path(@conn, :edit, @user), class: "btn btn-sm btn-primary") %>
                 <% else %>
-                    <button type="button" class="btn btn-sm btn-primary">follow</button>
+                    <%= if @current_user && Micro.Accounts.get_relationship(@current_user.id, @user.id) do %>
+                        <%= link("unfollow", to: relationship_path(@conn, :unfollow, current: @current_user, user: @user), method: :delete, class: "btn btn-sm btn-primary") %>
+                    <% end %>
+                    <%= if @current_user && !Micro.Accounts.get_relationship(@current_user.id, @user.id) do %>
+                        <%= link("follow", to: relationship_path(@conn, :follow, current: @current_user, user: @user), method: :post, class: "btn btn-sm btn-primary") %>
+                    <% end %>
                 <% end %>
             </div>
             </div>

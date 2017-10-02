@@ -19,7 +19,7 @@ defmodule Micro.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name, :handle, :bio, :relationships])
+    |> cast(attrs, [:name, :handle, :bio])
     |> validate_required([:name, :handle])
     |> unique_constraint(:handle)
   end
