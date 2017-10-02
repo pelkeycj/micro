@@ -1,20 +1,27 @@
+
         <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-2">
-                   <h4 class="font-weight-bold"><%= @user.name %></h4>
+            <div class="row mb-2">
+                <div class="col-md-8">
+                    <a class="card-tag" href="<%= user_path(@conn, :show, @post.user) %>">
+                    <span class="font-weight-bold h4 mr-4"> <%= @post.user.name %></span>
+                    <span> @<%= @post.user.handle %> </span>
+                    </a>
                 </div>
-                <div class="col-md-2">
-                    <%= if @current_user && @current_user.id == @user.id do %>
-                    <% else %>
-                        <button type="button" class="btn btn-sm btn-primary">follow</button>
-                    <% end %>
-                </div>
+
+            </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="<%= user_path(@conn, :show, @user) %>" class="align-middle card-tag">@<%= @user.handle %></a>
-                </div>
+            <div class="col-md-2">
+                <%= if @current_user && @current_user.id == @post.user.id do %>
+                    <%= link("edit", to: user_path(@conn, :edit, @post.user), class: "btn btn-sm btn-primary") %>
+                <% else %>
+                    <%= if @current_user && Micro.Accounts.get_relationship(@current_user.id, @post.user.id) do %>
+                        <%= link("unfollow", to: relationship_path(@conn, :unfollow, current: @current_user, user: @post.user), method: :delete, class: "btn btn-sm btn-primary") %>
+                    <% end %>
+                    <%= if @current_user && !Micro.Accounts.get_relationship(@current_user.id, @post.user.id) do %>
+                        <%= link("follow", to: relationship_path(@conn, :follow, current: @current_user, user: @post.user), method: :post, class: "btn btn-sm btn-primary") %>
+                    <% end %>
+                <% end %>
             </div>
 
 

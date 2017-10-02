@@ -38,6 +38,7 @@ defmodule Micro.Blog do
   """
   def get_post!(user, id) do
     Repo.get!(Ecto.assoc(user, :posts), id)
+    |> Repo.preload(:user)
 
   end
 
