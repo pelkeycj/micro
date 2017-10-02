@@ -77,5 +77,24 @@ defmodule MicroWeb.RelationshipController do
     end
   end
 
+  def index(conn, %{"view" => view}) do
+    case view do
+      "explore_posts" ->
+        users = Accounts.list_users()
+        posts = Blog.get_posts_for_users(users)
+        posts = Enum.shuffle(posts)
+        render(conn, "explore_posts.html", conn: conn, posts: posts)
+
+      "explore_users" ->
+        users = Accounts.list_users()
+        users = Enum.shuffle(users)
+        render(conn, "explore_users.html", conn: conn, users: users)
+
+      _->
+        conn
+        |> redirect(to: user_path(conn, :index))
+
+    end
+  end
 
 end

@@ -22,7 +22,7 @@
             </a>
 
         <% else %>
-            <a class="navbar-brand" href="<%= user_path(@conn, :index) %>">
+            <a class="navbar-brand" href="<%= page_path(@conn, :index) %>">
                 <img src="<%= static_path(@conn, "/images/mu.png") %>" width="40" height="40" alt="logo">
                 <strong>micro</strong>
             </a>
@@ -42,8 +42,6 @@
               <li class="nav-item ">
               <%= if @current_user do %>
                    <a class="nav-link" href="<%= relationship_path(@conn, :index, view: "explore_users", user: @current_user) %>"><strong>explore</strong></a>
-              <% else %>
-                  <a class="nav-link" href="<%= user_path(@conn, :index) %>"><strong>explore</strong></a>
               <% end %>
               </li>
 
