@@ -61,13 +61,14 @@ defmodule MicroWeb.PostController do
     end
   end
 
+  #TODO fix delete -> problem with assigns?
   def delete(conn, %{"id" => id}) do
     user = conn.assigns[:user]
     post = Blog.get_post!(user, id)
     {:ok, _post} = Blog.delete_post(post)
 
     conn
-    |> redirect(to: user_path(conn, user))
+    |> redirect(to: user_path(conn, :show, user))
   end
 
   defp assign_user(conn, _opts) do
