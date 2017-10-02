@@ -19,6 +19,7 @@ defmodule Micro.Blog do
   """
   def list_posts(user) do
       Repo.all(Ecto.assoc(user, :posts))
+      |> Repo.preload(:user)
   end
 
   @doc """
@@ -119,6 +120,9 @@ defmodule Micro.Blog do
     |> Enum.flat_map(fn x -> list_posts(x)  end)
   end
 
-  #TODO sort?
-
+  @doc """
+    sorts
+  """
+  def sort_posts_by_time(posts) do
+    Enum.sort(posts, &((&1).inserted_at >= (&2).inserted_at))  end
 end

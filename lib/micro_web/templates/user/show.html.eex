@@ -21,11 +21,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <p>
-                        <span class="mr-5"> <%= Micro.Accounts.follower_count(@user.id) %> followers </span>
-                      <!--  <span class="mr-5"> <a class="card-tag" href="<%= relationship_path(@conn, :index, view: :followers, user: @user) %>">
+                       <!-- <span class="mr-5"> <%= Micro.Accounts.follower_count(@user.id) %> followers </span> -->
+                       <span class="mr-5"> <a class="card-tag" href=" <%= relationship_path(@conn, :index, view: "followers", user: @user) %> ">
                                             <%= Micro.Accounts.follower_count(@user.id) %> followers
                         </span>
-                        -->
+
                         <span> <%= Micro.Accounts.following_count(@user.id) %> following</span>
                     </p>
                  </div>

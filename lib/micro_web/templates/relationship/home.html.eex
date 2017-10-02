@@ -1,0 +1,27 @@
+
+<div class="row mb-5">
+    <div class="col-md-12 m-auto">
+        <h1 class="text-center">feed</h1>
+    </div>
+</div>
+
+<%= for post <- @posts do %>
+    <div class="card bg-light mx-auto mt-4">
+        <div class="card-header">
+         <a class="card-tag" href="<%= user_path(@conn, :show, post.user) %>"> @<%= post.user.handle %></a>
+        </div>
+        <div class="card-body">
+            <a class="text-center card-tag h4 text-weight-bold"
+
+                    href="<%= user_post_path(@conn, :show, post.user, post) %>">
+                <%= post.title %>
+            </a>
+            <p class="card-text"> <%= post.body %></p>
+       </div>
+       <div class="card-footer">
+        <p >posted:  <%= post.inserted_at %> </p>
+       </div>
+   </div>
+
+
+<% end %>

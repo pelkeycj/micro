@@ -16,7 +16,7 @@
   <!-- Navbar -->
   <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark navbar-expand-md">
         <%= if @current_user do %>
-            <a class="navbar-brand" href="<%= relationship_path(@conn, :index, view: :home, user: @current_user) %>">
+            <a class="navbar-brand" href="<%= relationship_path(@conn, :index, view: "home", user: @current_user) %>">
                 <img src="<%= static_path(@conn, "/images/mu.png") %>" width="40" height="40" alt="logo">
                 <strong>micro</strong>
             </a>

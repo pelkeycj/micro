@@ -43,18 +43,19 @@ defmodule MicroWeb.RelationshipController do
   """
   def index(conn, %{"view" => view, "user" => user}) do
     case view do
-      :followers ->
-        followers = Accounts.get_followers(user.id)
+      "followers" ->
+        followers = Accounts.get_followers(user)
         render(conn, "index.html", header: "followers", users: followers)
 
-      :followings ->
-        followings = Accounts.get_followings(user.id)
+      "followings" ->
+        followings = Accounts.get_followings(user)
         render(conn, "index.html", header: "following", users: followings)
 
-      :home ->
-        followings = Accounts.get_followings(user.id)
+      "home" ->
+        followings = Accounts.get_followings(user)
         posts = Blog.get_posts_for_users(followings)
-        render(conn, "home.html", posts: posts)
+        posts = Blog.sort_posts_by_time(posts)
+        render(conn, "home.html", conn: conn, posts: posts)
 
 
       #:explore_posts ->
@@ -64,7 +65,6 @@ defmodule MicroWeb.RelationshipController do
       _->
         conn
         |> redirect(to: user_path(conn, :show, user))
-
     end
   end
 end
