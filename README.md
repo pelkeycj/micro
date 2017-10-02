@@ -1,7 +1,7 @@
 Micro
 ======
 
-### HW03 - Deployment
+### HW04 - Add Posts, Follows
 
 Submission requirements:
 - Github: https://github.com/pelkeycj/micro
