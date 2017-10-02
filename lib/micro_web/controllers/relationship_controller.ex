@@ -58,9 +58,18 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "home.html", conn: conn, posts: posts)
 
 
-      #:explore_posts ->
+      "explore_users" ->
+        strangers = Accounts.get_strangers(user)
+        strangers = Enum.shuffle(strangers)
+        user = Accounts.get_user!(user)
+        render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
-      #:explore_users ->
+      "explore_posts" ->
+        strangers = Accounts.get_strangers(user)
+        posts = Blog.get_posts_for_users(strangers)
+        posts = Enum.shuffle(posts)
+        user = Accounts.get_user!(user)
+        render(conn, "explore_posts.html", conn: conn, posts: posts, current_user: user)
 
       _->
         conn

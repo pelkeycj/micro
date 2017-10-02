@@ -10,7 +10,6 @@ defmodule MicroWeb.SessionController do
     if user do
       conn
       |> put_session(:user_id, user.id)
-      |> put_flash(:info, "Logged in as #{user.name}")
       |> redirect(to: user_path(conn, :show, user))
     else
       conn
@@ -26,7 +25,6 @@ defmodule MicroWeb.SessionController do
   def logout(conn, _params) do
     conn
     |> put_session(:user_id, nil)
-    |> put_flash(:info, "Logged out.")
     |> redirect(to: user_path(conn, :index))
   end
 
