@@ -9,7 +9,7 @@
 
     <title>Hello Micro!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/navbar.css") %>">
+   <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/navbar.css") %>"> -->
   </head>
 
   <body>

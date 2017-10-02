@@ -20,4 +20,5 @@ Submission requirements:
             on the brand icon in the upper right of the nav bar.
             Users can alternatively visit the "explore" page through the nav bar where they are able to
             explore users that they don't follow and posts from those people. The explore page
-            displays items in random order.
+            displays items in random order. Users can see their followers/following by viewing their profile page 
+            and then clicking on the number of followers/following that they have.
