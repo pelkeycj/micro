@@ -76,4 +76,6 @@ defmodule MicroWeb.RelationshipController do
         |> redirect(to: user_path(conn, :show, user))
     end
   end
+
+
 end
