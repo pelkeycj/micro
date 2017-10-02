@@ -11,7 +11,7 @@
             <a class="nav-link active post-nav" href="<%= user_path(@conn, :index)%>">people</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link post-nav" href="#">posts</a>
+            <a class="nav-link post-nav" href="<%= relationship_path(@conn, :index, view: "explore_", user: 0) %>">posts</a>
         </li>
     </ul>
 
