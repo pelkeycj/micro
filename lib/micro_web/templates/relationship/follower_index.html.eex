@@ -1,0 +1,24 @@
+
+
+<!-- USAGE: a list of users should be passed
+            to this template (followers/followings)-->
+
+<div class="row mb-5">
+    <div class="col-md-12 m-auto">
+        <h1 class="text-center">followers</h1>
+    </div>
+</div>
+
+<%= for user <- @users do %>
+        <div class="card bg-light mx-auto mt-4">
+           <!-- <img class="card-img-top" src="res/profile-stock.png" alt="profile image"> -->
+            <div class="card-header">
+                <a class="card-tag" href="<%= user_path(@conn, :show, user) %>"> @<%= user.handle %></a>
+            </div>
+            <div class="card-body">
+                <h4 class="text-center"> <%= user.name %></h4>
+                <p class="card-text"> <%= user.bio %></p>
+            </div>
+        </div>
+
+<% end %>

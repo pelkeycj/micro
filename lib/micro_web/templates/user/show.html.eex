@@ -8,19 +8,30 @@
         -->
 
         <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-8">
-                    <h4 class="font-weight-bold"><%= @user.name %></h4>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <p class="align-middle">@<%= @user.handle %></p>
-                </div>
-            </div>
             <div class="row mb-2">
+                <div class="col-md-8">
+                    <a class="card-tag" href="<%= user_path(@conn, :show, @user) %>">
+                    <span class="font-weight-bold h4 mr-4"> <%= @user.name %></span>
+                    <span> @<%= @user.handle %> </span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                        <div class="col-md-6">
+                            <p>
+                                <span class="mr-5">200 followers </span>
+                                <span>200 following</span>
+                            </p>
+                        </div>
+
+
+            </div>
+
+            <div class="row mb-2">
+
             <div class="col-md-2">
                 <%= if @current_user && @current_user.id == @user.id do %>
                     <%= link("edit", to: user_path(@conn, :edit, @user), class: "btn btn-sm btn-primary") %>
@@ -33,20 +44,12 @@
                     <% end %>
                 <% end %>
             </div>
+
+
             </div>
-            <!-- FOLLOWERS NOT IMPLEMENTED YET
-            <div class="row">
-                <div class="col-md-4">
-                    <p id="num-followers">345 followers</p>
-                </div>
-                <div class="col-md-4">
-                    <p id="num-following">12 following</p>
-                </div>
-            </div>
-            -->
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <p><%= @user.bio %></p>
                 </div>
             </div>

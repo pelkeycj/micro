@@ -3,6 +3,12 @@
 <!-- USAGE: a list of users should be passed
             to this template (followers/followings)-->
 
+<div class="row mb-5">
+    <div class="col-md-12 m-auto">
+        <h1 class="text-center">following</h1>
+    </div>
+</div>
+
 <%= for user <- @users do %>
         <div class="card bg-light mx-auto mt-4">
            <!-- <img class="card-img-top" src="res/profile-stock.png" alt="profile image"> -->
