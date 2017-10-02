@@ -40,7 +40,11 @@
           <ul class="navbar-nav justify-content-end">
 
               <li class="nav-item ">
+              <%= if @current_user do %>
+                   <a class="nav-link" href="<%= relationship_path(@conn, :index, view: "explore_users", user: @current_user) %>"><strong>explore</strong></a>
+              <% else %>
                   <a class="nav-link" href="<%= user_path(@conn, :index) %>"><strong>explore</strong></a>
+              <% end %>
               </li>
 
               <%= if @current_user do %>

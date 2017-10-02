@@ -1,0 +1,42 @@
+
+<div class="row mb-5">
+    <div class="col-md-12 m-auto">
+        <h1 class="text-center">explore</h1>
+    </div>
+</div>
+
+  <!-- NAV TABS -->
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link post-nav" href="<%= relationship_path(@conn, :index, view: "explore_users", user: @current_user)%>">people</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active post-nav" href="<%= relationship_path(@conn, :index, view: "explore_posts", user: @current_user)%>">posts</a>
+        </li>
+    </ul>
+
+
+<%= for post <- @posts do %>
+
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <a class="card-tag" href="<%= user_path(@conn, :show, post.user)%>">
+                           <span class="h5 font-weight-bold mr-3"> <%= post.user.name %> </span>
+                            @<%= post.user.handle %> </a>
+                    </div>
+                    <div class="card-body">
+                        <a class="card-tag" href="<%= user_post_path(@conn, :show, post.user, post) %>"><h5 class="text-center"><strong> <%= post.title %> </strong></h4></a>
+                        <p><%= post.body %></p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="m-auto text-muted">posted: <%= post.inserted_at %></p>
+                    </div>
+
+                    <!-- TODO likes and comments??? -->
+                </div>
+            </div>
+        </div>
+<% end %>
+

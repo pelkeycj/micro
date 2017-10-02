@@ -183,7 +183,7 @@ defmodule Micro.Accounts do
   end
 
   @doc """
-    Counts the number of followers a user has.
+    Counts the number of followers a User has.
   """
   def follower_count(user_id) do
     get_followers(user_id)
@@ -191,11 +191,23 @@ defmodule Micro.Accounts do
   end
 
   @doc """
-    Counts the number of followings a user has.
+    Counts the number of followings a User has.
   """
   def following_count(user_id) do
     get_followings(user_id)
     |> Enum.count()
+  end
+
+  @doc """
+    Gets a list of Users that are not followed by the given User.
+  """
+  def get_strangers(user_id) do
+    Repo.all(from r in Relationship,
+             where: r.follower_id != ^user_id and r.following_id != ^user_id,
+             select: r.following_id)
+    |> Enum.dedup()
+    |> Enum.reject(fn x -> x == user_id end)
+    |> Enum.map(fn y -> get_user!(y) end)
   end
 
 

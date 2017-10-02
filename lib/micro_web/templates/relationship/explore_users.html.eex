@@ -8,12 +8,13 @@
   <!-- NAV TABS -->
     <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active post-nav" href="<%= user_path(@conn, :index)%>">people</a>
+            <a class="nav-link active post-nav" href="<%= relationship_path(@conn, :index, view: "explore_users", user: @current_user)%>">people</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link post-nav" href="#">posts</a>
+            <a class="nav-link post-nav" href="<%= relationship_path(@conn, :index, view: "explore_posts", user: @current_user) %>">posts</a>
         </li>
     </ul>
+
 
 <%= for user <- @users do %>
         <div class="card bg-light mx-auto mt-4">
