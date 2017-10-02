@@ -6,24 +6,21 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
+    <%= text_input f, :name, class: "form-control", placeholder: "name" %>
     <%= error_tag f, :name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :handle, class: "control-label" %>
-    <%= text_input f, :handle, class: "form-control" %>
+    <%= text_input f, :handle, class: "form-control", placeholder: "@handle" %>
     <%= error_tag f, :handle %>
   </div>
 
   <div class="form-group">
-    <%= label f, :bio, class: "control-label" %>
-    <%= textarea f, :bio, class: "form-control" %>
+    <%= textarea f, :bio, class: "form-control", placeholder: "bio (optional)" %>
     <%= error_tag f, :bio %>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+  <div class="col-md-12 text-center">
+    <%= submit "submit", class: "btn btn-primary" %>
   </div>
 <% end %>

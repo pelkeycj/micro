@@ -1,23 +1,13 @@
 
+
+<!-- USAGE: a list of users should be passed
+            to this template (followers/followings)-->
+
 <div class="row mb-5">
     <div class="col-md-12 m-auto">
-        <h1 class="text-center">explore</h1>
+        <h1 class="text-center"><%= @header %></h1>
     </div>
 </div>
-
-<!-- TODO: only show users that aren't followed
-            add posts explore page: will require additional functions (sorting?)
-            only show posts from not followed users -->
-
-  <!-- NAV TABS -->
-    <ul class="nav nav-tabs justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active post-nav" href="<%= user_path(@conn, :index)%>">people</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link post-nav" href="#">posts</a>
-        </li>
-    </ul>
 
 <%= for user <- @users do %>
         <div class="card bg-light mx-auto mt-4">
@@ -32,4 +22,3 @@
         </div>
 
 <% end %>
-

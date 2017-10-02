@@ -1,7 +1,7 @@
 defmodule Micro.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Micro.Accounts.User
+  alias Micro.Accounts.{User, Relationship}
 
 
   schema "users" do
@@ -9,7 +9,9 @@ defmodule Micro.Accounts.User do
     field :handle, :string
     field :name, :string
     has_many :posts, Micro.Blog.Post
-    #TODO:followers, following
+    #has_many :followings, through: [:relationships, :followings]
+    many_to_many :relationships, Relationship, join_through: "relationships",
+           join_keys: [follower_id: :id, following_id: :id]
 
     timestamps()
   end

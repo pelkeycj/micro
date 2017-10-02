@@ -6,7 +6,7 @@ defmodule Micro.Accounts do
   import Ecto.Query, warn: false
   alias Micro.Repo
 
-  alias Micro.Accounts.User
+  alias Micro.Accounts.{User, Relationship}
 
   @doc """
   Returns the list of users.
@@ -119,4 +119,84 @@ defmodule Micro.Accounts do
   def get_user_by_handle!(handle) do
     Repo.get_by(User, handle: handle)
   end
+
+  @doc """
+    Creates a follow relationship between two Users.
+
+    ## Examples
+
+      iex> create_relationship(%{field: value})
+          %Relationship{}
+  """
+  def create_relationship(attrs) do
+    %Relationship{}
+    |> Relationship.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+    Deletes a Relationship.
+
+      ## Examples
+
+      iex> delete_relationship(relationship)
+      {:ok, %Relationship{}}
+
+      iex> delete_relationship(relationship)
+      {:error, %Ecto.Changeset{}}
+  """
+  def delete_relationship(relationship) do
+    Repo.delete(relationship)
+  end
+
+
+  @doc """
+    Gets a Relationship.
+  """
+  def get_relationship(follower_id, following_id) do
+    Repo.one(from r in Relationship,
+        where: r.follower_id == ^follower_id and r.following_id == ^following_id,
+        select: r)
+  end
+
+  @doc """
+    Gets the followers of the given user as a list of Users.
+  """
+  def get_followers(user_id) do
+    Repo.all(from r in Relationship,
+             order_by: r.inserted_at,
+             where: r.following_id == ^user_id,
+             select: r.follower_id)
+    |> Enum.map(fn x ->
+        get_user!(x) end)
+  end
+
+  @doc """
+    Gets the followings of the given user as a list of Users.
+  """
+  def get_followings(user_id) do
+    Repo.all(from r in Relationship,
+             order_by: r.inserted_at,
+             where: r.follower_id == ^user_id,
+             select: r.following_id)
+    |> Enum.map( fn x -> get_user!(x) end)
+  end
+
+  @doc """
+    Counts the number of followers a user has.
+  """
+  def follower_count(user_id) do
+    get_followers(user_id)
+    |> Enum.count()
+  end
+
+  @doc """
+    Counts the number of followings a user has.
+  """
+  def following_count(user_id) do
+    get_followings(user_id)
+    |> Enum.count()
+  end
+
+
 end

@@ -32,7 +32,6 @@ defmodule MicroWeb.PostController do
     case Blog.create_post(conn.assigns[:user], post_params) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "Post created successfully.")
         |> redirect(to: user_post_path(conn, :show, conn.assigns[:user], post))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -56,7 +55,6 @@ defmodule MicroWeb.PostController do
     case Blog.update_post(post, post_params) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: user_post_path(conn, :show, conn.assigns[:user], post))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset)
@@ -64,12 +62,12 @@ defmodule MicroWeb.PostController do
   end
 
   def delete(conn, %{"id" => id}) do
-    post = Blog.get_post!(conn.assigns[:user], id)
+    user = conn.assigns[:user]
+    post = Blog.get_post!(user, id)
     {:ok, _post} = Blog.delete_post(post)
 
     conn
-    |> put_flash(:info, "Post deleted successfully.")
-    |> redirect(to: user_post_path(conn, :index, conn.assigns[:user]))
+    |> redirect(to: user_path(conn, user))
   end
 
   defp assign_user(conn, _opts) do
@@ -92,7 +90,6 @@ defmodule MicroWeb.PostController do
   defp authorize_user(conn, _opts) do
     user = conn.assigns[:user]
     current_user = conn.assigns[:current_user]
-    #if user && Integer.to_string(user.id) == conn.params["user_id"] do
     if current_user && current_user.id == user.id do
       conn
     else

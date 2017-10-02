@@ -1,5 +1,13 @@
-<h2>Edit User</h2>
+
+<div class="col-md-12">
+    <div class="row">
+    <div class="col-md-6">
+        <h1>edit account</h1>
+    </div>
+    <div class="col-md-6">
+        <span class="float-right"><%= link "delete account", to: user_path(@conn, :delete, @user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs", id: "delete-account" %></span>
+    </div>
+</div>
 
 <%= render "form.html", Map.put(assigns, :action, user_path(@conn, :update, @user)) %>
 
-<span><%= link "Back", to: user_path(@conn, :index) %></span>

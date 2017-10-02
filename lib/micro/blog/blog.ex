@@ -19,6 +19,7 @@ defmodule Micro.Blog do
   """
   def list_posts(user) do
       Repo.all(Ecto.assoc(user, :posts))
+      |> Repo.preload(:user)
   end
 
   @doc """
@@ -53,7 +54,7 @@ defmodule Micro.Blog do
 
   """
   def create_post(user, attrs \\ %{}) do
-    changeset =
+   # changeset =
     user
     |> Ecto.build_assoc(:posts)
     |> Post.changeset(attrs)
@@ -110,4 +111,18 @@ defmodule Micro.Blog do
   def change_post(%Post{} = post) do
     Post.changeset(post, %{})
   end
+
+  @doc """
+    Gets a list of posts by all the given users
+  """
+  def get_posts_for_users(users) do
+    users
+    |> Enum.flat_map(fn x -> list_posts(x)  end)
+  end
+
+  @doc """
+    sorts
+  """
+  def sort_posts_by_time(posts) do
+    Enum.sort(posts, &((&1).inserted_at >= (&2).inserted_at))  end
 end
