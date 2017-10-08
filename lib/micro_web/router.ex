@@ -13,6 +13,9 @@ defmodule MicroWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_user
+    resources "/likes", MicroWeb.LikeController, except: [:new, :edit]
   end
 
   scope "/", MicroWeb do

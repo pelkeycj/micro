@@ -8,6 +8,7 @@ defmodule Micro.Blog.Post do
     field :body, :string
     field :title, :string
     belongs_to :user, Micro.Accounts.User
+    has_many :likes, Micro.Blog.Like
 
     timestamps()
   end
