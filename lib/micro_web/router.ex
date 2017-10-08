@@ -15,8 +15,8 @@ defmodule MicroWeb.Router do
     plug :accepts, ["json"]
     plug :fetch_session
     plug :fetch_user
-    resources "/likes", MicroWeb.LikeController, except: [:new, :edit]
   end
+
 
   scope "/", MicroWeb do
     pipe_through :browser # Use the default browser stack
@@ -35,6 +35,13 @@ defmodule MicroWeb.Router do
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout
   end
+
+  scope "/api/v1", MicroWeb do
+    pipe_through :api
+
+    resources "/likes", LikeController, except: [:new, :edit]
+  end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", MicroWeb do
