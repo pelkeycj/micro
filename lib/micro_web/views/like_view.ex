@@ -11,6 +11,6 @@ defmodule MicroWeb.LikeView do
   end
 
   def render("like.json", %{like: like}) do
-    %{id: like.id}
+    %{id: like.id, user_id: like.user_id, user_handle: like.user.handle, user_name: like.user.name, post_id: like.post_id}
   end
 end

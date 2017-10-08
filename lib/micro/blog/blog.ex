@@ -129,6 +129,13 @@ defmodule Micro.Blog do
 
   alias Micro.Blog.Like
 
+
+  def list_post_likes(post_id) do
+    Repo.all(from l in Like,
+              where: l.post_id == ^post_id)
+            |> Repo.preload(:user)
+  end
+
   @doc """
   Returns the list of likes.
 
@@ -140,6 +147,13 @@ defmodule Micro.Blog do
   """
   def list_likes do
     Repo.all(Like)
+    |> Repo.preload(:user)
+    |> Repo.preload(:post)
+  end
+
+  def get_like!(post_id, user_id) do
+    Repo.all(from l in Like,
+            where: l.post_id == ^post_id and l.user_id == ^user_id)
   end
 
   @doc """
@@ -156,8 +170,11 @@ defmodule Micro.Blog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_like!(id), do: Repo.get!(Like, id)
-
+  def get_like!(id) do
+    Repo.get!(Like, id)
+    |> Repo.preload(:user)
+    |> Repo.preload(:post)
+  end
   @doc """
   Creates a like.
 

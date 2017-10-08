@@ -23,7 +23,6 @@ defmodule MicroWeb.Router do
     get "/", PageController, :index
 
     # associate posts with users
-    # TODO associate relations with users??
     resources "/users", UserController do
       resources "/posts", PostController
     end
@@ -39,7 +38,7 @@ defmodule MicroWeb.Router do
   scope "/api/v1", MicroWeb do
     pipe_through :api
 
-    resources "/likes", LikeController, except: [:new, :edit]
+    resources "/likes", LikeController, except: [:edit]
   end
 
 

@@ -42,3 +42,49 @@
     </p>
 </div>
 
+
+<!-- Likes  -->
+    <nav class="mt-5 clear-nav mb-2">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active post-nav" href="#">likes</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <%= if @current_user do %>
+        <button id="like-add-button" class="btn btn-sm btn-primary"
+          data-user-id="<%= @current_user.id %>">
+            like
+        </button>
+    <% end %>
+
+
+<div id="post-likes"
+     data-path="<%= like_path(@conn, :index) %>"
+     data-post_id="<%= @post.id %>">
+</div>
+
+
+
+<script id="likes-template" type="text/x-handlebars-template">
+    <div class="mt-2">
+
+    {{#each data}}
+        <div class="row mt-3">
+        <div class="col-md-8">
+        <a class="card-tag" href="#">
+            <span class="font-weight-bold h4">
+                {{user_name}}
+            </span>
+            @{{user_handle}}
+        </a>
+        </div>
+        </div>
+    {{else}}
+        <p> be the first to like this post </p>
+    {{/each}}
+
+    </div>
+</script>

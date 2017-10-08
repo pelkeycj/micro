@@ -13,7 +13,7 @@ defmodule Micro.Blog.Like do
   @doc false
   def changeset(%Like{} = like, attrs) do
     like
-    |> cast(attrs, [:user, :post])
-    |> validate_required([:user, :post])
+    |> cast(attrs, [:user_id, :post_id])
+    |> validate_required([:user_id, :post_id])
   end
 end
