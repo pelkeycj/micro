@@ -152,7 +152,7 @@ defmodule Micro.Blog do
   end
 
   def get_like!(post_id, user_id) do
-    Repo.all(from l in Like,
+    Repo.one(from l in Like,
             where: l.post_id == ^post_id and l.user_id == ^user_id)
     |> Repo.preload(:user)
     |> Repo.preload(:post)

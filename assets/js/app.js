@@ -39,6 +39,7 @@ $(function() {
     let buttonAdd = $($("#like-add-button"));
     let buttonRemove = $($("#like-remove-button"));
     let user_id = buttonAdd.data('user-id');
+    let like_id = buttonRemove.data('like-id');
 
     function fetch_likes() {
         function got_likes(data) {
@@ -72,18 +73,19 @@ $(function() {
     }
 
     function remove_like() {
-        let data = {post_id: post_id, user_id: user_id};
-
-        //TODO need id for like
+        let data = {id: like_id};
 
         $.ajax({
             url: path,
-            data: JSON.stringify(data),
+            data: data,
             dataType: "json",
             method: "DELETE",
             success: fetch_likes,
         });
     }
+
+    //TODO update like count
+    //TODO update button 
 
     buttonAdd.click(add_like);
     buttonRemove.click(remove_like);

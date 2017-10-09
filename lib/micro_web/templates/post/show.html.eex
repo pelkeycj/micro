@@ -44,6 +44,7 @@
 
 
 <!-- Likes  -->
+<!--
     <nav class="mt-5 clear-nav mb-2">
         <ul class="nav nav-tabs justify-content-center">
             <li class="nav-item">
@@ -52,38 +53,33 @@
 
         </ul>
     </nav>
-
-<!--
-    <%= if @current_user && Micro.Blog.get_like!(@post.id, @current_user.id) do %>
-        <button id="like-add-button" class="btn btn-sm btn-primary"
-          data-user-id="<%= @current_user.id %>">
-            like
-        </button>
-    <% end %>
-    <% if @current_user && !Micro.Blog.get_like!(@post.id, @current_user.id) do %>
-        <button id="like-remove-button" class="btn btn-sm btn-primary"
-                data-user-id="<%= @current_user.id %>">
-                    unlike
-        </button>
-    <% end %>
-
 -->
-
+<hr>
+<div class="row mt-3 align-items-center">
+    <div class="col-md-2">
+        <p class="m-auto"> <%= Micro.Blog.count_likes(@post.id) %> likes </p>
+    </div>
+    <div class="col-md-1">
 <!-- TODO  why is like being found?-->
     <%= if @current_user do %>
         <%= if Micro.Blog.get_like!(@post.id, @current_user.id) do %>
-            <button id="like-remove-button" class="btn btn-sm btn-primary"
-             data-user-id="<%= @current_user.id %>">
+            <button id="like-remove-button" class="btn btn-sm btn-primary mt-auto"
+             data-user-id="<%= @current_user.id %>"
+             data-like-id="<%= Micro.Blog.get_like!(@post.id, @current_user.id).id %>">
                 unlike
             </button>
         <% else %>
-            <button id="like-add-button" class="btn btn-sm btn-primary"
+            <button id="like-add-button" class="btn btn-sm btn-primary mt-auto"
                     data-user-id="<%= @current_user.id %>">
                         like
             </button>
         <% end %>
 
     <% end %>
+
+    </div>
+</div>
+
 
 
 <div id="post-likes"
