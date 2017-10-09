@@ -154,6 +154,8 @@ defmodule Micro.Blog do
   def get_like!(post_id, user_id) do
     Repo.all(from l in Like,
             where: l.post_id == ^post_id and l.user_id == ^user_id)
+    |> Repo.preload(:user)
+    |> Repo.preload(:post)
   end
 
   @doc """
@@ -238,5 +240,10 @@ defmodule Micro.Blog do
   """
   def change_like(%Like{} = like) do
     Like.changeset(like, %{})
+  end
+
+  def count_likes(post_id) do
+    Repo.all(from l in Like, where: l.post_id == ^post_id)
+    |> Enum.count()
   end
 end

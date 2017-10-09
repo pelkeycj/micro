@@ -16,7 +16,7 @@ defmodule Micro.Blog.Post do
   @doc false
   def changeset(%Post{} = post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :likes])
+    |> cast(attrs, [:title, :body])
     |> validate_required([:title, :body])
   end
 end

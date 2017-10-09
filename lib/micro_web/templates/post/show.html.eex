@@ -53,11 +53,36 @@
         </ul>
     </nav>
 
-    <%= if @current_user do %>
+<!--
+    <%= if @current_user && Micro.Blog.get_like!(@post.id, @current_user.id) do %>
         <button id="like-add-button" class="btn btn-sm btn-primary"
           data-user-id="<%= @current_user.id %>">
             like
         </button>
+    <% end %>
+    <% if @current_user && !Micro.Blog.get_like!(@post.id, @current_user.id) do %>
+        <button id="like-remove-button" class="btn btn-sm btn-primary"
+                data-user-id="<%= @current_user.id %>">
+                    unlike
+        </button>
+    <% end %>
+
+-->
+
+<!-- TODO  why is like being found?-->
+    <%= if @current_user do %>
+        <%= if Micro.Blog.get_like!(@post.id, @current_user.id) do %>
+            <button id="like-remove-button" class="btn btn-sm btn-primary"
+             data-user-id="<%= @current_user.id %>">
+                unlike
+            </button>
+        <% else %>
+            <button id="like-add-button" class="btn btn-sm btn-primary"
+                    data-user-id="<%= @current_user.id %>">
+                        like
+            </button>
+        <% end %>
+
     <% end %>
 
 

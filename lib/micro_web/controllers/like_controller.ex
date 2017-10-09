@@ -40,7 +40,7 @@ defmodule MicroWeb.LikeController do
   end
 
   def delete(conn, %{"post_id" => post_id, "user_id" => user_id}) do
-    like = Blog.get_like(post_id, user_id)
+    like = Blog.get_like!(post_id, user_id)
     with {:ok, %Like{}} <- Blog.delete_like(like) do
       send_resp(conn, :no_content, "")
     end

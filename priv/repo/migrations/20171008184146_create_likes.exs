@@ -11,6 +11,7 @@ defmodule Micro.Repo.Migrations.CreateLikes do
 
     create index(:likes, [:user_id])
     create index(:likes, [:post_id])
+    create unique_index(:likes, [:user_id, :post_id])
 
   end
 end

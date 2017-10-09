@@ -9,6 +9,7 @@ defmodule Micro.Repo.Migrations.AddIdToLikes do
 
     create index(:likes, [:user_id])
     create index(:likes, [:post_id])
+    create unique_index(:likes, [:post_id, :user_id])
 
   end
 end

@@ -36,8 +36,9 @@ $(function() {
     let path = div.data('path');
     let post_id = div.data('post_id');
 
-    let button = $($("#like-add-button"));
-    let user_id = button.data('user-id');
+    let buttonAdd = $($("#like-add-button"));
+    let buttonRemove = $($("#like-remove-button"));
+    let user_id = buttonAdd.data('user-id');
 
     function fetch_likes() {
         function got_likes(data) {
@@ -56,6 +57,7 @@ $(function() {
         });
     }
 
+    
     function add_like() {
         let data = {like: {post_id: post_id, user_id: user_id}};
 
@@ -65,25 +67,26 @@ $(function() {
             contentType: "application/json",
             dataType: "json",
             method: "POST",
-            success: fetch_likes(),
+            success: fetch_likes,
         });
     }
 
     function remove_like() {
-        let data = {post_id: post_id, user_id: user_ud}
+        let data = {post_id: post_id, user_id: user_id};
+
+        //TODO need id for like
 
         $.ajax({
             url: path,
             data: JSON.stringify(data),
             dataType: "json",
             method: "DELETE",
-            success: fetch_likes(),
+            success: fetch_likes,
         });
     }
 
-    //TODO create two different buttons and create new click() below
-
-    button.click(add_like);
+    buttonAdd.click(add_like);
+    buttonRemove.click(remove_like);
     fetch_likes();
 
 });
