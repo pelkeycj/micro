@@ -36,10 +36,13 @@ $(function() {
     let path = div.data('path');
     let post_id = div.data('post_id');
 
-    let buttonAdd = $($("#like-add-button"));
-    let buttonRemove = $($("#like-remove-button"));
-    let user_id = buttonAdd.data('user-id');
-    let like_id = buttonRemove.data('like-id');
+    let button = $($("#like-button"));
+    let user_id = button.data('user-id');
+
+    //let buttonAdd = $($("#like-add-button"));
+    //let buttonRemove = $($("#like-remove-button"));
+    //let like_id = buttonRemove.data('like-id');
+    var like_id = null;
 
     function fetch_likes() {
         function got_likes(data) {
@@ -97,11 +100,27 @@ $(function() {
     }
 
     function set_button_text(data) {
-        
+        var liked = false;
+        // determine if user follows
+        data.data.forEach(function(like) {
+            if (user_id === like.user_id && post_id === like.post_id) {
+                like_id = like.id;
+                button.text("unlike");
+                button.click(remove_like);
+                liked = true;
+                return;
+            }
+        });
+
+        if (!liked) {
+            like_id = null;
+            button.text("like");
+            button.click(add_like)
+        }
     }
 
-    buttonAdd.click(add_like);
-    buttonRemove.click(remove_like);
+   // buttonAdd.click(add_like);
+    //buttonRemove.click(remove_like);
     fetch_likes();
 
 });
