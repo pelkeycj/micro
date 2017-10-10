@@ -46,6 +46,8 @@ $(function() {
             console.log(data);
             let html = tmpl(data);
             div.html(html);
+            set_like_count(data);
+            set_button_text(data);
         }
 
         $.ajax({
@@ -84,8 +86,21 @@ $(function() {
         });
     }
 
-    //TODO update like count
-    //TODO update button 
+    function set_like_count(data) {
+        var count = data.data.length;
+        var text = " likes";
+        if (count === 1) {
+            text = " like";
+        }
+
+        //get div
+
+        console.log(count);
+    }
+
+    function set_button_text(data) {
+        
+    }
 
     buttonAdd.click(add_like);
     buttonRemove.click(remove_like);
