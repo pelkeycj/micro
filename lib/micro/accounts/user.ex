@@ -9,7 +9,7 @@ defmodule Micro.Accounts.User do
     field :handle, :string
     field :name, :string
     has_many :posts, Micro.Blog.Post
-    #has_many :followings, through: [:relationships, :followings]
+    has_many :likes, Micro.Blog.Like
     many_to_many :relationships, Relationship, join_through: "relationships",
            join_keys: [follower_id: :id, following_id: :id]
 

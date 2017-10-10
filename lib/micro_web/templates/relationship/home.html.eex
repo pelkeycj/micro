@@ -13,10 +13,10 @@
                             @<%= post.user.handle %> </a>
                     </div>
         <div class="card-body">
-            <a class="text-center card-tag h4 text-weight-bold"
+            <a class="card-tag h4 text-weight-bold"
 
                     href="<%= user_post_path(@conn, :show, post.user, post) %>">
-                <%= post.title %>
+                <h4 class="text-center"> <%= post.title %> </h4>
             </a>
             <p class="card-text"> <%= post.body %></p>
        </div>

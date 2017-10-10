@@ -19,3 +19,108 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+let handlebars = require("handlebars");
+
+$(function() {
+    if (!$("#likes-template").length > 0) {
+        console.log("wrong-page");
+        return;
+    }
+
+    let template = $($("#likes-template")[0]);
+    let code = template.html();
+    let tmpl = handlebars.compile(code);
+
+    let div = $($("#post-likes")[0]);
+    let path = div.data('path');
+    let post_id = div.data('post_id');
+
+    let button = $($("#like-button"));
+    let user_id = button.data('user-id');
+
+    //let buttonAdd = $($("#like-add-button"));
+    //let buttonRemove = $($("#like-remove-button"));
+    //let like_id = buttonRemove.data('like-id');
+    var like_id = null;
+
+    function fetch_likes() {
+        function got_likes(data) {
+            console.log(data);
+            let html = tmpl(data);
+            div.html(html);
+            set_like_count(data);
+            set_button_text(data);
+        }
+
+        $.ajax({
+            url: path,
+            data: {post_id: post_id},
+            contentType: "application/json",
+            dataType: "json",
+            method: "GET",
+            success: got_likes,
+        });
+    }
+
+    
+    function add_like() {
+        let data = {like: {post_id: post_id, user_id: user_id}};
+
+        $.ajax({
+            url: path,
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+            method: "POST",
+            success: fetch_likes,
+        });
+    }
+
+    function remove_like() {
+        let data = {id: like_id};
+
+        $.ajax({
+            url: path,
+            data: data,
+            dataType: "json",
+            method: "DELETE",
+            success: fetch_likes,
+        });
+    }
+
+    function set_like_count(data) {
+        var count = data.data.length;
+        var text = " likes";
+        if (count === 1) {
+            text = " like";
+        }
+
+        $($("#like-count")).text(count + text);
+    }
+
+    function set_button_text(data) {
+        var liked = false;
+        // determine if user follows
+        data.data.forEach(function(like) {
+            if (user_id === like.user_id && post_id === like.post_id) {
+                like_id = like.id;
+                button.text("unlike");
+                button.click(remove_like);
+                liked = true;
+                return;
+            }
+        });
+
+        if (!liked) {
+            like_id = null;
+            button.text("like");
+            button.click(add_like)
+        }
+    }
+
+   // buttonAdd.click(add_like);
+    //buttonRemove.click(remove_like);
+    fetch_likes();
+
+});

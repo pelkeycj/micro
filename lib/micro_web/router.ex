@@ -13,14 +13,16 @@ defmodule MicroWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_user
   end
+
 
   scope "/", MicroWeb do
     pipe_through :browser # Use the default browser stack
     get "/", PageController, :index
 
     # associate posts with users
-    # TODO associate relations with users??
     resources "/users", UserController do
       resources "/posts", PostController
     end
@@ -32,6 +34,14 @@ defmodule MicroWeb.Router do
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout
   end
+
+  scope "/api/v1", MicroWeb do
+    pipe_through :api
+    resources "/likes", LikeController, except: [:edit, :delete]
+    delete "/likes", LikeController, :delete
+
+  end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", MicroWeb do
