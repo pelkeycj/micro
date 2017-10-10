@@ -93,9 +93,7 @@ $(function() {
             text = " like";
         }
 
-        //get div
-
-        console.log(count);
+        $($("#like-count")).text(count + text);
     }
 
     function set_button_text(data) {

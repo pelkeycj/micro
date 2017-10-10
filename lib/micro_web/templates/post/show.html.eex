@@ -57,10 +57,10 @@
 <hr>
 <div class="row mt-3 align-items-center">
     <div class="col-md-2">
-        <p class="m-auto"> <%= Micro.Blog.count_likes(@post.id) %> likes </p>
+        <p class="m-auto" id="like-count"> </p>
     </div>
     <div class="col-md-1">
-<!-- TODO  why is like being found?-->
+
     <%= if @current_user do %>
         <%= if Micro.Blog.get_like!(@post.id, @current_user.id) do %>
             <button id="like-remove-button" class="btn btn-sm btn-primary mt-auto"
