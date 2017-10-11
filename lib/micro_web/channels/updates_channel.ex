@@ -1,8 +1,17 @@
 defmodule MicroWeb.UpdatesChannel do
   use MicroWeb, :channel
 
-  def join("updates:lobby", payload, socket) do
+  def join("updates:all", payload, socket) do
     if authorized?(payload) do
+      {:ok, socket}
+    else
+      {:error, %{reason: "unauthorized"}}
+    end
+  end
+
+  #TODO make sure this works
+  def join("updates:" <> user_id, _payload, socket) do
+    if authorized?(user_id) do
       {:ok, socket}
     else
       {:error, %{reason: "unauthorized"}}

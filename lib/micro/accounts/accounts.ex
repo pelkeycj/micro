@@ -201,6 +201,7 @@ defmodule Micro.Accounts do
   @doc """
     Gets a list of Users that are not followed by the given User.
   """
+  #TODO FIX - not filtering correctly? see project issue
   def get_strangers(user_id) do
     Repo.all(from r in Relationship,
              where: r.follower_id != ^user_id,
@@ -210,5 +211,18 @@ defmodule Micro.Accounts do
     |> Enum.map(fn y -> get_user!(y) end)
   end
 
+  @doc """
+    Broadcasts the Post to the updates#{follower_id} channel for
+    all followers of user_id.
+  """
+  #TODO does this work?
+  def broadcast_post_to_following(user_id, post) do
+    Repo.all(from r in Relationship,
+              where: r.following_id == ^user_id,
+              select: r.follower_id)
+    |> Enum.map(fn x ->
+          Endpoint.broadcast("updates:#{x}", "new post", post)
+    end)
+  end
 
 end

@@ -55,6 +55,7 @@ defmodule MicroWeb.RelationshipController do
         followings = Accounts.get_followings(user)
         posts = Blog.get_posts_for_users(followings)
         posts = Blog.sort_posts_by_time(posts)
+        #TODO user must join their channel here ?
         render(conn, "home.html", conn: conn, posts: posts)
 
 
@@ -68,7 +69,8 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->
-       # strangers = Accounts.get_strangers(user)
+        #TODO fix
+        # strangers = Accounts.get_strangers(user)
         strangers = Accounts.list_users()
         posts = Blog.get_posts_for_users(strangers)
         posts = Enum.shuffle(posts)

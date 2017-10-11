@@ -31,6 +31,8 @@ defmodule MicroWeb.PostController do
   def create(conn, %{"post" => post_params}) do
     case Blog.create_post(conn.assigns[:user], post_params) do
       {:ok, post} ->
+        # broadcast post to all follower channels
+        Micro.Accounts.broadcast_post_to_followers(conn.assigns[:user], post)
         conn
         |> redirect(to: user_post_path(conn, :show, conn.assigns[:user], post))
       {:error, %Ecto.Changeset{} = changeset} ->
