@@ -5,8 +5,8 @@ defmodule Micro.Blog do
 
   import Ecto.Query, warn: false
   alias Micro.Repo
+  alias Micro.Blog.{Post, Like}
 
-  alias Micro.Blog.Post
 
   @doc """
   Returns the list of posts.
@@ -125,10 +125,8 @@ defmodule Micro.Blog do
     sorts
   """
   def sort_posts_by_time(posts) do
-    Enum.sort(posts, &((&1).inserted_at >= (&2).inserted_at))  end
-
-  alias Micro.Blog.Like
-
+    Enum.sort(posts, &((&1).inserted_at >= (&2).inserted_at))
+  end
 
   def list_post_likes(post_id) do
     Repo.all(from l in Like,

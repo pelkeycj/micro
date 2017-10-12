@@ -14,7 +14,7 @@
 
   <body>
   <%= if @current_user do %>
-    <%= tag :meta, name: "channel_token", content: @conn.assigns[:current_user].id %>
+    <%= tag :meta, name: "user_channel", content: @conn.assigns[:current_user].id %>
   <% end %>
 
   <!-- Navbar -->

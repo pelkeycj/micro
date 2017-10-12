@@ -52,7 +52,7 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // from connect if you don't care about authentication.
 
 $(function() {
-    let user = $("meta[name=channel_token]").attr("content");
+    let user = $("meta[name=user_channel]").attr("content");
     socket.connect();
 
 // Now that you are connected, you can join channels with a topic:
@@ -61,6 +61,10 @@ $(function() {
         .receive("ok", resp => { console.log("Joined successfully. Channel updates:" + user, resp) })
         .receive("error", resp => { console.log("Unable to join", resp) })
 
+    channel.on("following_post", msg => {
+       console.log("NEW POST");
+       console.log(msg);
+    });
 
 });
 
