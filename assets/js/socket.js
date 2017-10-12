@@ -51,6 +51,7 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
+//TODO channel.on('following_post", msg)-> add new card in
 $(function() {
     let user = $("meta[name=user_channel]").attr("content");
     socket.connect();
@@ -62,10 +63,32 @@ $(function() {
         .receive("error", resp => { console.log("Unable to join", resp) })
 
     channel.on("following_post", msg => {
-       console.log("NEW POST");
-       console.log(msg);
+       renderMsg(msg);
     });
 
+
+    // insert post as card in div
+    function renderMsg(msg) {
+        var card =
+            $("<div class='card bg-light mx-auto mt-4'>" +
+                "<div class='card-header'>" +
+                    "<a href='#' class='card-tag'>@" +
+                    msg["user_handle"]
+                    "</a>"
+                "</div>" +
+                "<div class='card-body'>" +
+                    "<a class='card-tag h4 font-weight-bold' href='#' >" +
+                        "<span class='text-center'> + " +
+                            msg["post_title"] +
+                        "</span>" +
+                    "</a>" +
+                    "<p class='card-text'> " +
+                        msg["post_body"] +
+                    "</p>" +
+                "</div>" +
+            "</div>");
+        //TODO input
+    }
 });
 
 export default socket
