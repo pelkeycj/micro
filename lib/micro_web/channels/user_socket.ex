@@ -3,9 +3,7 @@ defmodule MicroWeb.UserSocket do
 
   ## Channels
   # channel "room:*", MicroWeb.RoomChannel
-  channel "updates:all", MicroWeb.UpdatesChannel
-  # TODO separate channel for each user
-  # TODO when user posts, broadcast post to followers channels
+  channel "updates:*", MicroWeb.UpdatesChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

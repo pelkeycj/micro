@@ -13,6 +13,10 @@
   </head>
 
   <body>
+  <%= if @current_user do %>
+    <%= tag :meta, name: "channel_token", content: @conn.assigns[:current_user].id %>
+  <% end %>
+
   <!-- Navbar -->
   <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark navbar-expand-md">
         <%= if @current_user do %>

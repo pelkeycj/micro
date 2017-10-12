@@ -51,12 +51,18 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
-socket.connect()
+$(function() {
+    let user = $("meta[name=channel_token]").attr("content");
+    socket.connect();
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+    let channel = socket.channel("updates:" + user, {});
+    channel.join()
+        .receive("ok", resp => { console.log("Joined successfully. Channel updates:" + user, resp) })
+        .receive("error", resp => { console.log("Unable to join", resp) })
+
+
+});
 
 export default socket
+

@@ -20,9 +20,11 @@
             </a>
             <p class="card-text"> <%= post.body %></p>
        </div>
+        <!--
        <div class="card-footer">
         <p class="m-auto text-muted" >posted:  <%= post.inserted_at %> </p>
        </div>
+       -->
    </div>
 
 

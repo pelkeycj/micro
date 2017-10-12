@@ -56,6 +56,7 @@ defmodule MicroWeb.RelationshipController do
         posts = Blog.get_posts_for_users(followings)
         posts = Blog.sort_posts_by_time(posts)
         #TODO user must join their channel here ?
+        #TODO fetch posts from channel
         render(conn, "home.html", conn: conn, posts: posts)
 
 

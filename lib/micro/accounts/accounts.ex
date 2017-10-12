@@ -212,11 +212,11 @@ defmodule Micro.Accounts do
   end
 
   @doc """
-    Broadcasts the Post to the updates#{follower_id} channel for
+    Broadcasts the Post to the updates:follower_id channel for
     all followers of user_id.
   """
   #TODO does this work?
-  def broadcast_post_to_following(user_id, post) do
+  def broadcast_post_to_followers(user_id, post) do
     Repo.all(from r in Relationship,
               where: r.following_id == ^user_id,
               select: r.follower_id)
