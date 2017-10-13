@@ -72,22 +72,33 @@ $(function() {
         var card =
             $("<div class='card bg-light mx-auto mt-4'>" +
                 "<div class='card-header'>" +
-                    "<a href='#' class='card-tag'>@" +
-                    msg["user_handle"]
-                    "</a>"
+                    "<a href='users/" +
+                    msg["user_id"] +
+                    "' class='card-tag'>" +
+                        "<span class='mr-3 h5 font-weight-bold'>" +
+                            msg["user_name"] +
+                        " </span>" +
+                        "@" +
+                        msg["user_handle"] +
+                    "</a>" +
                 "</div>" +
                 "<div class='card-body'>" +
-                    "<a class='card-tag h4 font-weight-bold' href='#' >" +
-                        "<span class='text-center'> + " +
+                    "<a class='card-tag h4 font-weight-bold text-center' href='users/" +
+                    msg["user_id"] +
+                    "/posts/" +
+                    msg["post_id"] +
+                    "' >" +
+                        "<h4 class='text-center'>" +
                             msg["post_title"] +
-                        "</span>" +
+                        "</h4>" +
                     "</a>" +
                     "<p class='card-text'> " +
                         msg["post_body"] +
                     "</p>" +
                 "</div>" +
             "</div>");
-        //TODO input
+
+        $("#feed-content").prepend(card)
     }
 });
 

@@ -5,6 +5,9 @@
     </div>
 </div>
 
+<div id="feed-content">
+</div>
+
 <%= for post <- @posts do %>
     <div class="card bg-light mx-auto mt-4">
                     <div class="card-header">
