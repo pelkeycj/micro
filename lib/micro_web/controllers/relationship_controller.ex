@@ -52,16 +52,16 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "index.html", header: "following", users: followings)
 
       "home" ->
+        #TODO fix ordering
         followings = Accounts.get_followings(user)
         posts = Blog.get_posts_for_users(followings)
         posts = Blog.sort_posts_by_time(posts)
-        #TODO user must join their channel here ?
-        #TODO fetch posts from channel
+        #TODO order of render is not sorted????
         render(conn, "home.html", conn: conn, posts: posts)
 
 
       "explore_users" ->
-        #TODO fix
+        #TODO fix filter
         #strangers = Accounts.get_strangers(user)
         #strangers = Enum.shuffle(strangers)
         strangers = Accounts.list_users()
@@ -70,7 +70,7 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->
-        #TODO fix
+        #TODO fix filter
         # strangers = Accounts.get_strangers(user)
         strangers = Accounts.list_users()
         posts = Blog.get_posts_for_users(strangers)
