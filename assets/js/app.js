@@ -23,6 +23,8 @@ import socket from "./socket"
 
 let handlebars = require("handlebars");
 
+//TODO refactor -> set button text by passing in new value
+                // -> set onClick during add and remove
 $(function() {
     if (!$("#likes-template").length > 0) {
         console.log("wrong-page");
@@ -123,5 +125,4 @@ $(function() {
    // buttonAdd.click(add_like);
     //buttonRemove.click(remove_like);
     fetch_likes();
-
 });
