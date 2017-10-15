@@ -10,6 +10,8 @@ defmodule Micro.BlogTest do
     @update_attrs %{body: "some updated body", tags: "some updated tags", title: "some updated title"}
     @invalid_attrs %{body: nil, tags: nil, title: nil}
 
+    @docp """
+
     def post_fixture(attrs \\ %{}) do
       {:ok, post} =
         attrs
@@ -124,4 +126,7 @@ defmodule Micro.BlogTest do
       assert %Ecto.Changeset{} = Blog.change_like(like)
     end
   end
-end
+
+  """
+
+  end
