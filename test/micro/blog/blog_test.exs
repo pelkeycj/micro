@@ -125,8 +125,8 @@ defmodule Micro.BlogTest do
       like = like_fixture()
       assert %Ecto.Changeset{} = Blog.change_like(like)
     end
+  """
   end
 
-  """
 
   end
