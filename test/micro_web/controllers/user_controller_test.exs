@@ -12,6 +12,8 @@ defmodule MicroWeb.UserControllerTest do
     user
   end
 
+  @docp """
+
   describe "index" do
     test "lists all users", %{conn: conn} do
       conn = get conn, user_path(conn, :index)
@@ -85,4 +87,7 @@ defmodule MicroWeb.UserControllerTest do
     user = fixture(:user)
     {:ok, user: user}
   end
+
+  """
+
 end
