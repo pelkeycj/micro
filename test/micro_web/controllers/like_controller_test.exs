@@ -8,6 +8,8 @@ defmodule MicroWeb.LikeControllerTest do
   @update_attrs %{}
   @invalid_attrs %{}
 
+  @docp """
+
   def fixture(:like) do
     {:ok, like} = Blog.create_like(@create_attrs)
     like
@@ -74,4 +76,6 @@ defmodule MicroWeb.LikeControllerTest do
     like = fixture(:like)
     {:ok, like: like}
   end
+
+  """
 end
