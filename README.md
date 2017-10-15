@@ -1,7 +1,7 @@
 Micro
 ======
 
-###Features
+#Features
 - Posting as a user
 - Following another user
 - Liking a post
