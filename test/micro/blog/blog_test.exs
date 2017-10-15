@@ -6,7 +6,7 @@ defmodule Micro.BlogTest do
   describe "posts" do
     alias Micro.Blog.Post
 
-    @valid_attrs %{body: "some body", tags: "some tags", title: "some title"}
+    @valid_attrs %{body: "some body", tags: "some tags", title: "some title", user: %{}}
     @update_attrs %{body: "some updated body", tags: "some updated tags", title: "some updated title"}
     @invalid_attrs %{body: nil, tags: nil, title: nil}
 

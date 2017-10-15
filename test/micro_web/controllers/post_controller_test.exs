@@ -3,10 +3,11 @@ defmodule MicroWeb.PostControllerTest do
 
   alias Micro.Blog
 
-  @create_attrs %{body: "some body", tags: "some tags", title: "some title"}
+  @create_attrs %{body: "some body", tags: "some tags", title: "some title", user: %{}}
   @update_attrs %{body: "some updated body", tags: "some updated tags", title: "some updated title"}
   @invalid_attrs %{body: nil, tags: nil, title: nil}
 
+  @docp """
   def fixture(:post) do
     {:ok, post} = Blog.create_post(@create_attrs)
     post
@@ -14,7 +15,7 @@ defmodule MicroWeb.PostControllerTest do
 
   describe "index" do
     test "lists all posts", %{conn: conn} do
-      conn = get conn, user_post_path(conn, :index)
+      conn = get conn, user_post_path(conn, :index,)
       assert html_response(conn, 200) =~ "Listing Posts"
     end
   end
@@ -85,4 +86,6 @@ defmodule MicroWeb.PostControllerTest do
     post = fixture(:post)
     {:ok, post: post}
   end
+
+  """
 end
