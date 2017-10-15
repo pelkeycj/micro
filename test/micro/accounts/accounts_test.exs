@@ -8,7 +8,7 @@ defmodule Micro.AccountsTest do
 
     @valid_attrs %{bio: "some bio", handle: "some handle", name: "some name"}
     @update_attrs %{bio: "some updated bio", handle: "some updated handle", name: "some updated name"}
-    @invalid_attrs %{bio: nil, handle: nil, name: nil}
+    @invalid_attrs %{handle: nil, name: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
