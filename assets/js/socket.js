@@ -51,7 +51,6 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
-//TODO channel.on('following_post", msg)-> add new card in
 $(function() {
     let user = $("meta[name=user_channel]").attr("content");
     socket.connect();

@@ -9,7 +9,6 @@ defmodule MicroWeb.UpdatesChannel do
     end
   end
 
-  #TODO make sure this works
   def join("updates:" <> user_id, _payload, socket) do
     if authorized?(user_id) do
       {:ok, socket}
