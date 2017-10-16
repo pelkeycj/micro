@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :micro, Micro.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "micro",
+  password: "pelkey.cRU28ul25!",
   database: "micro_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
