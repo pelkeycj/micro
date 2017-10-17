@@ -65,8 +65,8 @@
               <li class="nav-item mt-auto mb-auto">
                 <%= form_for @conn, session_path(@conn, :login),
                             [as: "user", class: "form-inline w-50"], fn f -> %>
-                        <input class="form-control form-control-sm mr-sm-2 inputbar" type="text" placeholder="@handle sign in" name="handle">
-
+                        <input class="form-control form-control-sm mr-sm-2 inputbar" type="text" placeholder="@handle" name="handle">
+                        <input class="form-control form-control-sm mr-sm-2 inputbar" type="password" placeholder="password" name="password">
                 <% end %>
                 </li>
                 <li class="nav-item">
