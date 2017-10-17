@@ -49,7 +49,7 @@ defmodule Micro.Accounts.User do
     end)
   end
 
-  def put_pass_hash(%Ecto.changeset{valid?: true, changes: %{password: password}} = changeset) do
+  def put_pass_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
     change(changeset, Comeonin.Argon2.add_hash(password))
   end
 
