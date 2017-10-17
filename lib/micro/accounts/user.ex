@@ -12,6 +12,16 @@ defmodule Micro.Accounts.User do
     has_many :likes, Micro.Blog.Like
     many_to_many :relationships, Relationship, join_through: "relationships",
            join_keys: [follower_id: :id, following_id: :id]
+    # user authentication
+    # use a hashed password and rate limit failed login
+    # attempts
+    field :password_hash, :string
+    field :pw_tries, :integer
+    field :pw_last_try, :utc_datetime
+
+    # used for registration
+    field :password, :string, virtual: true
+    field :pasword_confirmation, :string, virtual: true
 
     timestamps()
   end
@@ -23,4 +33,9 @@ defmodule Micro.Accounts.User do
     |> validate_required([:name, :handle])
     |> unique_constraint(:handle)
   end
+
+  # Password validation
+  # From Comeonin documentation
+  #TODO
+
 end
