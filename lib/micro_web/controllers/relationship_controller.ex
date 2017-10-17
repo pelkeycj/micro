@@ -41,22 +41,21 @@ defmodule MicroWeb.RelationshipController do
     and explore posts
 
   """
-  def index(conn, %{"view" => view, "user" => user}) do
+  def index(conn, %{"view" => view, "user" => user_id}) do
+    user = Accounts.get_user!(user_id)
     case view do
       "followers" ->
-        followers = Accounts.get_followers(user)
+        followers = Accounts.get_followers(user_id)
         render(conn, "index.html", header: "followers", users: followers)
 
       "followings" ->
-        followings = Accounts.get_followings(user)
+        followings = Accounts.get_followings(user_id)
         render(conn, "index.html", header: "following", users: followings)
 
       "home" ->
-        #FIXME ordering
-        followings = Accounts.get_followings(user)
+        followings = Accounts.get_followings(user_id) ++ [user]
         posts = Blog.get_posts_for_users(followings)
         posts = Blog.sort_posts_by_time(posts)
-        #TODO order of render is not sorted????
         render(conn, "home.html", conn: conn, posts: posts)
 
 
@@ -66,7 +65,6 @@ defmodule MicroWeb.RelationshipController do
         #strangers = Enum.shuffle(strangers)
         strangers = Accounts.list_users()
         strangers = Enum.shuffle(strangers)
-        user = Accounts.get_user!(user)
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->
@@ -75,12 +73,11 @@ defmodule MicroWeb.RelationshipController do
         strangers = Accounts.list_users()
         posts = Blog.get_posts_for_users(strangers)
         posts = Enum.shuffle(posts)
-        user = Accounts.get_user!(user)
         render(conn, "explore_posts.html", conn: conn, posts: posts, current_user: user)
 
       _->
         conn
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: user_path(conn, :show, user_id))
     end
   end
 
