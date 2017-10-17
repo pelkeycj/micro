@@ -20,6 +20,16 @@
     <%= error_tag f, :bio %>
   </div>
 
+  <div class="form-group">
+    <%= password_input f, :password, class: "form-control", placeholder: "password" %>
+    <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <%= password_input f, :password_confirmation, class: "form-control", placeholder: "confirm password" %>
+    <%= error_tag f, :password_confirmation %>
+  </div>
+
   <div class="col-md-12 text-center">
     <%= submit "submit", class: "btn btn-primary" %>
   </div>

@@ -5,8 +5,9 @@ defmodule MicroWeb.SessionController do
   @doc """
     Logs a user in.
   """
-  def login(conn, %{"handle" => handle}) do
-    user = Accounts.get_user_by_handle!(handle)
+  def login(conn, %{"handle" => handle, "password" => password}) do
+    user = Accounts.get_and_auth_user(handle, password)
+
     if user do
       conn
       |> put_session(:user_id, user.id)
@@ -14,7 +15,7 @@ defmodule MicroWeb.SessionController do
     else
       conn
       |> put_session(:user_id, nil)
-      |> put_flash(:error, "Handle does not exist.")
+      |> put_flash(:error, "Invalid handle or password.")
       |> redirect(to: page_path(conn, :index))
     end
   end
@@ -27,7 +28,4 @@ defmodule MicroWeb.SessionController do
     |> put_session(:user_id, nil)
     |> redirect(to: page_path(conn, :index))
   end
-
-
-
 end

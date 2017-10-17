@@ -55,15 +55,10 @@ defmodule Micro.Blog do
 
   """
   def create_post(user, attrs \\ %{}) do
-   # changeset =
     user
     |> Ecto.build_assoc(:posts)
     |> Post.changeset(attrs)
     |> Repo.insert()
-
-   # %Post{}
-   # |> Post.changeset(attrs)
-   # |> Repo.insert()
   end
 
   @doc """
@@ -125,7 +120,8 @@ defmodule Micro.Blog do
     sorts
   """
   def sort_posts_by_time(posts) do
-    Enum.sort(posts, &((&1).inserted_at >= (&2).inserted_at))
+    #Enum.sort(posts, &((&1).updated_at < (&2).updated_at))
+    Enum.sort(posts, &(:gt == NaiveDateTime.compare(&1.updated_at, &2.updated_at)))
   end
 
   def list_post_likes(post_id) do
