@@ -201,7 +201,7 @@ defmodule Micro.Accounts do
   @doc """
     Gets a list of Users that are not followed by the given User.
   """
-  #TODO FIX - not filtering correctly? see project issue on github
+  #FIXME - not filtering correctly? see project issue on github
   def get_strangers(user_id) do
     Repo.all(from r in Relationship,
              where: r.follower_id != ^user_id,
@@ -226,5 +226,19 @@ defmodule Micro.Accounts do
     end)
    ##  body: post.body, user_id: post.user.id, user_handle: post.user.handle}) # see own post
   end
+
+  @doc """
+    Gets a User with the given handle and authorizes them
+    with the given password.
+  """
+  def get_and_auth_user(handle, password) do
+    user = Accounts.get_user_by_handle!(handle)
+    throttle_attempts(user)
+    case Comeonin.Argon2.check_pass(user, password) do
+      {:ok, user} -> user
+      _else       -> nil
+    end
+  end
+
 
 end
