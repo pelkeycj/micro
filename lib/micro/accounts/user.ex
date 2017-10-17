@@ -26,16 +26,39 @@ defmodule Micro.Accounts.User do
     timestamps()
   end
 
+
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name, :handle, :bio])
-    |> validate_required([:name, :handle])
+    |> cast(attrs, [:name, :handle, :bio, :password, :password_confirmation])
+    |> validate_confirmation(:password)
+    |> validate_password(:password)
+    |> put_pass_hash()
+    |> validate_required([:name, :handle, :password_hash])
     |> unique_constraint(:handle)
   end
 
   # Password validation
   # From Comeonin documentation
-  #TODO
+  def validate_password(changeset, field, options \\ []) do
+    validate_change(changeset, field, fn _, password ->
+      case valid_password?(password) do
+        {:ok, _} -> []
+        {:error, msg} -> [{field, options[:message] || msg}]
+      end
+    end)
+  end
+
+  def put_pass_hash(%Ecto.changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, Comeonin.Argon2.add_hash(password))
+  end
+
+  def put_pass_hash(changeset), do: changeset
+
+  def valid_password?(password) when byte_size(password) > 7 do
+    {:ok, password}
+  end
+
+  def valid_password?(_), do: {:error, "The password is too short"}
 
 end
