@@ -20,6 +20,14 @@
     <%= error_tag f, :bio %>
   </div>
 
+  <div class="form-group">
+    <!--TODO password-->
+  </div>
+
+  <div class="form-group">
+    <!-- TODO password confirmation -->
+  </div>
+
   <div class="col-md-12 text-center">
     <%= submit "submit", class: "btn btn-primary" %>
   </div>
