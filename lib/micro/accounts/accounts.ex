@@ -201,14 +201,10 @@ defmodule Micro.Accounts do
   @doc """
     Gets a list of Users that are not followed by the given User.
   """
-  #FIXME - not filtering correctly? see project issue on github
   def get_strangers(user_id) do
-    Repo.all(from r in Relationship,
-             where: r.follower_id != ^user_id,
-             select: r.following_id)
-    |> Enum.dedup()
-    |> Enum.reject(fn x -> x == user_id end)
-    |> Enum.map(fn y -> get_user!(y) end)
+    followings = get_followings(user_id) ++ [get_user!(user_id)]
+    list_users()
+    |> Enum.filter(fn x -> !Enum.member?(followings, x) end)
   end
 
   @doc """

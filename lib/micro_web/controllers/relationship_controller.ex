@@ -61,10 +61,10 @@ defmodule MicroWeb.RelationshipController do
 
       "explore_users" ->
         #FIXME filter
-        #strangers = Accounts.get_strangers(user)
-        #strangers = Enum.shuffle(strangers)
-        strangers = Accounts.list_users()
+        strangers = Accounts.get_strangers(user_id)
         strangers = Enum.shuffle(strangers)
+        #strangers = Accounts.list_users()
+        #strangers = Enum.shuffle(strangers)
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->

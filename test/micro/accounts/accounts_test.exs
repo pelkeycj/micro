@@ -3,6 +3,7 @@ defmodule Micro.AccountsTest do
 
   alias Micro.Accounts
 
+  @docp """
   describe "users" do
     alias Micro.Accounts.User
 
@@ -66,4 +67,7 @@ defmodule Micro.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
+
+  """
+
 end
