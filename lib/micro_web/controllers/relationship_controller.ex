@@ -52,7 +52,7 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "index.html", header: "following", users: followings)
 
       "home" ->
-        #TODO fix ordering
+        #FIXME ordering
         followings = Accounts.get_followings(user)
         posts = Blog.get_posts_for_users(followings)
         posts = Blog.sort_posts_by_time(posts)
@@ -61,7 +61,7 @@ defmodule MicroWeb.RelationshipController do
 
 
       "explore_users" ->
-        #TODO fix filter
+        #FIXME filter
         #strangers = Accounts.get_strangers(user)
         #strangers = Enum.shuffle(strangers)
         strangers = Accounts.list_users()
@@ -70,7 +70,7 @@ defmodule MicroWeb.RelationshipController do
         render(conn, "explore_users.html", conn: conn, users: strangers, current_user: user)
 
       "explore_posts" ->
-        #TODO fix filter
+        #FIXME filter
         # strangers = Accounts.get_strangers(user)
         strangers = Accounts.list_users()
         posts = Blog.get_posts_for_users(strangers)

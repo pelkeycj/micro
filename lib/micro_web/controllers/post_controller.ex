@@ -63,7 +63,6 @@ defmodule MicroWeb.PostController do
     end
   end
 
-  #TODO fix delete -> problem with assigns?
   def delete(conn, %{"id" => id}) do
     user = conn.assigns[:user]
     post = Blog.get_post!(user, id)

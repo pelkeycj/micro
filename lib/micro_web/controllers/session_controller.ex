@@ -28,7 +28,4 @@ defmodule MicroWeb.SessionController do
     |> put_session(:user_id, nil)
     |> redirect(to: page_path(conn, :index))
   end
-
-
-
 end
