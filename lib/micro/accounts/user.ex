@@ -21,7 +21,7 @@ defmodule Micro.Accounts.User do
 
     # used for registration
     field :password, :string, virtual: true
-    field :pasword_confirmation, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
 
     timestamps()
   end
@@ -76,14 +76,14 @@ defmodule Micro.Accounts.User do
     y2k = DateTime.from_naive!(~N[2000-01-01 00:00:00], "Etc/UTC")
     previous = DateTime.to_unix(user.pw_last_try || y2k)
     now = DateTime.to_unix(DateTime.utc_now())
-    throttle = (now - prev) < 3600
+    throttle = (now - previous) < 3600
 
     if (throttle && user.pw_tries > 5) do
       nil
     else
       changes = %{
         pw_tries: update_tries(throttle, user.pw_tries),
-        pw_last_try: now
+        pw_last_try: DateTime.utc_now()
       }
       IO.inspect(user) #TODO remove
       {:ok, user} = Ecto.Changeset.cast(user, changes, [:pw_tries, :pw_last_try])

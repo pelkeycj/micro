@@ -15,7 +15,7 @@ defmodule MicroWeb.SessionController do
     else
       conn
       |> put_session(:user_id, nil)
-      |> put_flash(:error, "That account doesn't exist.")
+      |> put_flash(:error, "Invalid handle or password.")
       |> redirect(to: page_path(conn, :index))
     end
   end

@@ -232,8 +232,8 @@ defmodule Micro.Accounts do
     with the given password.
   """
   def get_and_auth_user(handle, password) do
-    user = Accounts.get_user_by_handle!(handle)
-    throttle_attempts(user)
+    user = get_user_by_handle!(handle)
+    User.throttle_attempts(user)
     case Comeonin.Argon2.check_pass(user, password) do
       {:ok, user} -> user
       _else       -> nil

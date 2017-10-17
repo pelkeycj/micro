@@ -100,7 +100,6 @@ defmodule MicroWeb.RelationshipController do
       _->
         conn
         |> redirect(to: user_path(conn, :index))
-
     end
   end
 

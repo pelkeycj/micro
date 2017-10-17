@@ -3,3 +3,19 @@
   <h3 class="text-center">a micro blogging app built with elixir/phoenix</h3>
 </div>
 
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1 class="font-weight-bold">sign in</h1>
+    </div>
+
+       <div class="col-md-4 text-center ml-auto mr-auto">
+            <%= if !@current_user do %>
+                <%= form_for @conn, session_path(@conn, :login),
+                    [as: "user", class: " mr-auto ml-auto"], fn f -> %>
+                <input class="form-control form-control-sm mr-sm-2 inputbar ml-auto mr-auto mt-3" type="text" placeholder="@handle" name="handle">
+                <input class="form-control form-control-sm mr-sm-2 inputbar ml-auto mr-auto mt-3" type="password" placeholder="password" name="password">
+                <input type="submit" value="sign in" class="btn btn-primary btn-sm mt-3">
+            <% end %>
+        <% end %>
+       </div>
+</div>
