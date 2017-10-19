@@ -65,6 +65,11 @@ $(function() {
        renderMsg(msg);
     });
 
+    //TODO when post button on feed is submitted
+    // grab values -> ensure not empty
+    // create new post with attrs
+    // channel push
+
 
     // insert post as card in div
     function renderMsg(msg) {

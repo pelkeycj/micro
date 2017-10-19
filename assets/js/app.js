@@ -27,7 +27,6 @@ let handlebars = require("handlebars");
                 // -> set onClick during add and remove
 
 //FIXME likes are not working
-//TODO add message from post form at top of feed
 $(function() {
     if (!$("#likes-template").length > 0) {
         console.log("wrong-page");
