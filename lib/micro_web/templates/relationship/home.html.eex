@@ -1,11 +1,25 @@
 
-<div class="row mb-5">
+<div class="row mb-2">
     <div class="col-md-12 m-auto">
         <h1 class="text-center">feed</h1>
     </div>
 </div>
 
+<form>
+    <div class="form-group">
+        <input type="text" class="form-control" id="post-title" placeholder="title" id="new-post-title>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="5" id="post-text" placeholder="body" id="new-post-body"></textarea>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center ml-auto mr-auto">
+            <button type="button" class="btn btn-primary" id="new-post-btn">post</button>
+        </div>
+    </div>
+</form>
 <div id="feed-content">
+    <!-- Live updates are shown here -->
 </div>
 
 <%= for post <- @posts do %>
