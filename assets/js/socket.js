@@ -59,16 +59,55 @@ $(function() {
     let channel = socket.channel("updates:" + user, {});
     channel.join()
         .receive("ok", resp => { console.log("Joined successfully. Channel updates:" + user, resp) })
-        .receive("error", resp => { console.log("Unable to join", resp) })
+        .receive("error", resp => { console.log("Unable to join", resp) });
 
     channel.on("following_post", msg => {
        renderMsg(msg);
     });
 
+    let postButton = $($("#new-post-btn"));
+    postButton.click(createNewPost);
+
+
+    function createNewPost() {
+        let postTitleInput = $("#post-title");
+        let postBodyInput = $("#post-body");
+        let postTitle = postTitleInput.val();
+        let postBody = postBodyInput.val();
+
+        if(!isValidPost()) {
+            return;
+        }
+
+        channel.push("new_post", {user_id: user, post: {title: postTitle, body: postBody}})
+            .receive("ok", msg => { postSuccess(msg) })
+            .receive("error", msg => { postFailed(msg) });
+        clearInput();
+
+
+        function postSuccess(msg) {
+            clearInput();
+            console.log("Posted", msg);
+        }
+
+        function postFailed(msg) {
+            console.log("Failed to post", msg);
+        }
+
+        function isValidPost() {
+            return postTitle.length > 0 && postBody.length > 0;
+        }
+
+        function clearInput() {
+            postTitleInput.val("");
+            postBodyInput.val("");
+        }
+
+    }
 
     // insert post as card in div
     function renderMsg(msg) {
-        var card =
+        let card =
             $("<div class='card bg-light mx-auto mt-4'>" +
                 "<div class='card-header'>" +
                     "<a href='users/" +

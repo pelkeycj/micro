@@ -25,6 +25,8 @@ let handlebars = require("handlebars");
 
 //TODO refactor -> set button text by passing in new value
                 // -> set onClick during add and remove
+
+//FIXME likes are not working
 $(function() {
     if (!$("#likes-template").length > 0) {
         console.log("wrong-page");

@@ -17,6 +17,18 @@ defmodule MicroWeb.UpdatesChannel do
     end
   end
 
+  def handle_in("new_post", payload, socket) do
+    case MicroWeb.PostController.create(payload) do
+      {:ok, post} ->
+        {:reply, {:ok, post}, socket}
+      {:error, reasons} ->
+        {:reply, {:error, reasons}, socket}
+      _ ->
+        {:reply, {:error, %{reasons: "Unknown error"}, socket}}
+    end
+  end
+
+
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
   def handle_in("ping", payload, socket) do
