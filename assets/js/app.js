@@ -23,9 +23,6 @@ import socket from "./socket"
 
 let handlebars = require("handlebars");
 
-//TODO refactor -> set button text by passing in new value
-                // -> set onClick during add and remove
-
 //FIXME likes are not working
 $(function() {
     if (!$("#likes-template").length > 0) {
@@ -51,11 +48,19 @@ $(function() {
 
     function fetch_likes() {
         function got_likes(data) {
-            console.log(data);
             let html = tmpl(data);
             div.html(html);
+            if (user_likes_post(data)) {
+                console.log("liked");
+                button.click(remove_like);
+                button.text("unlike");
+            }
+            else {
+                console.log("not liked");
+                button.click(add_like);
+                button.text("like");
+            }
             set_like_count(data);
-            set_button_text(data);
         }
 
         $.ajax({
@@ -68,10 +73,22 @@ $(function() {
         });
     }
 
+
+    function user_likes_post(data) {
+        let liked = false;
+        data.data.forEach(function(like) {
+           if (like.user_id == user_id && like.post_id == post_id) {
+               liked = true;
+               return;
+           }
+        });
+
+        return liked;
+    }
     
     function add_like() {
         let data = {like: {post_id: post_id, user_id: user_id}};
-
+        console.log("adding . . . ");
         $.ajax({
             url: path,
             data: JSON.stringify(data),
@@ -83,8 +100,8 @@ $(function() {
     }
 
     function remove_like() {
-        let data = {id: like_id};
-
+        let data = {post_id: post_id,  user_id: user_id};
+        console.log("removing . . .");
         $.ajax({
             url: path,
             data: data,
@@ -113,6 +130,7 @@ $(function() {
                 button.text("unlike");
                 button.click(remove_like);
                 liked = true;
+                console.log(like_id)
                 return;
             }
         });

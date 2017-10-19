@@ -39,6 +39,7 @@ defmodule MicroWeb.Router do
     pipe_through :api
     resources "/likes", LikeController, except: [:edit, :delete]
     delete "/likes", LikeController, :delete
+    post "/likes", LikeController, :create
 
   end
 
