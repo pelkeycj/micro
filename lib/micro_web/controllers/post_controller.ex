@@ -40,6 +40,18 @@ defmodule MicroWeb.PostController do
     end
   end
 
+  # used in posting via channels
+  def create(%{"user_id" => user_id, "post" => post_params}) do
+    user = Micro.Accounts.get_user!(user_id)
+    case Blog.create_post(user, post_params) do
+      {:ok, post} ->
+        Micro.Accounts.broadcast_post_to_followers(user.id, post)
+        {:ok, post}
+      {:error, _changeset} ->
+        {:error, %{reason: "Invalid attributes"}}
+    end
+  end
+
   def show(conn, %{"id" => id}) do
     post = Blog.get_post!(conn.assigns[:user], id)
     render(conn, "show.html", post: post)

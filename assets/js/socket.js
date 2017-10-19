@@ -59,7 +59,7 @@ $(function() {
     let channel = socket.channel("updates:" + user, {});
     channel.join()
         .receive("ok", resp => { console.log("Joined successfully. Channel updates:" + user, resp) })
-        .receive("error", resp => { console.log("Unable to join", resp) })
+        .receive("error", resp => { console.log("Unable to join", resp) });
 
     channel.on("following_post", msg => {
        renderMsg(msg);
@@ -81,11 +81,17 @@ $(function() {
 
         console.log(postTitle);
         console.log(postBody);
-        //TODO push through channel
+
+        channel.push("new_post", {user_id: user, post: {title: postTitle, body: postBody}})
+            .receive("ok", post => { postSuccess(post) })
+            .receive("error", reasons => { console.log("Failed to post", reasons) });
         clearInput();
 
-        // send user, title, body through and assemble there
 
+        function postSuccess(msg) {
+            clearInput();
+            console.log("Posted", msg);
+        }
 
         function isValidPost() {
             return postTitle.length > 0 && postBody.length > 0;
