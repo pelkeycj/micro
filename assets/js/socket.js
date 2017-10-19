@@ -65,15 +65,42 @@ $(function() {
        renderMsg(msg);
     });
 
-    //TODO when post button on feed is submitted
-    // grab values -> ensure not empty
-    // create new post with attrs
-    // channel push
+    let postButton = $($("#new-post-btn"));
+    postButton.click(createNewPost);
 
+
+    function createNewPost() {
+        let postTitleInput = $("#post-title");
+        let postBodyInput = $("#post-body");
+        let postTitle = postTitleInput.val();
+        let postBody = postBodyInput.val();
+
+        if(!isValidPost()) {
+            return;
+        }
+
+        console.log(postTitle);
+        console.log(postBody);
+        //TODO push through channel
+        clearInput();
+
+        // send user, title, body through and assemble there
+
+
+        function isValidPost() {
+            return postTitle.length > 0 && postBody.length > 0;
+        }
+
+        function clearInput() {
+            postTitleInput.val("");
+            postBodyInput.val("");
+        }
+
+    }
 
     // insert post as card in div
     function renderMsg(msg) {
-        var card =
+        let card =
             $("<div class='card bg-light mx-auto mt-4'>" +
                 "<div class='card-header'>" +
                     "<a href='users/" +
