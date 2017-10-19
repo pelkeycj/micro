@@ -26,7 +26,6 @@ defmodule MicroWeb.UpdatesChannel do
       _ ->
         {:reply, {:error, %{reasons: "Unknown error"}, socket}}
     end
-    {:ok, payload}
   end
 
 

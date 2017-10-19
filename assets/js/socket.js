@@ -79,18 +79,19 @@ $(function() {
             return;
         }
 
-        console.log(postTitle);
-        console.log(postBody);
-
         channel.push("new_post", {user_id: user, post: {title: postTitle, body: postBody}})
-            .receive("ok", post => { postSuccess(post) })
-            .receive("error", reasons => { console.log("Failed to post", reasons) });
+            .receive("ok", msg => { postSuccess(msg) })
+            .receive("error", msg => { postFailed(msg) });
         clearInput();
 
 
         function postSuccess(msg) {
             clearInput();
             console.log("Posted", msg);
+        }
+
+        function postFailed(msg) {
+            console.log("Failed to post", msg);
         }
 
         function isValidPost() {
