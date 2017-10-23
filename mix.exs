@@ -44,6 +44,7 @@ defmodule Micro.Mixfile do
       {:distillery, "~> 1.4"},
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.2"},
+      {:earmark, "~> 1.0"},
     ]
   end
 
