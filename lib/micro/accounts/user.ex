@@ -85,7 +85,6 @@ defmodule Micro.Accounts.User do
         pw_tries: update_tries(throttle, user.pw_tries),
         pw_last_try: DateTime.utc_now()
       }
-      IO.inspect(user) #TODO remove
       {:ok, user} = Ecto.Changeset.cast(user, changes, [:pw_tries, :pw_last_try])
       |> Micro.Repo.update
     end

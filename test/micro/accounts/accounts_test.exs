@@ -3,7 +3,9 @@ defmodule Micro.AccountsTest do
 
   alias Micro.Accounts
 
+
   @docp """
+
   describe "users" do
     alias Micro.Accounts.User
 
@@ -24,6 +26,7 @@ defmodule Micro.AccountsTest do
       user = user_fixture()
       assert Accounts.list_users() == [user]
     end
+
 
     test "get_user!/1 returns the user with given id" do
       user = user_fixture()
