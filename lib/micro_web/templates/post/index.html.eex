@@ -10,10 +10,8 @@
                     </div>
                     <div class="card-body">
                         <a class="card-tag" href="<%= user_post_path(@conn, :show, @user, post) %>"><h5 class="text-center"><strong> <%= post.title %> </strong></h4></a>
-                        <p><%= post.body %></p>
+                        <p><%= Micro.Blog.Post.as_markdown(post.body) %></p>
                     </div>
-
-                    <!-- TODO likes and comments??? -->
                 </div>
             </div>
         </div>

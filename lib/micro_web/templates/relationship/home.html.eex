@@ -35,7 +35,7 @@
                     href="<%= user_post_path(@conn, :show, post.user, post) %>">
                 <h4 class="text-center"> <%= post.title %> </h4>
             </a>
-            <p class="card-text"> <%= post.body %></p>
+            <p class="card-text"> <%= Micro.Blog.Post.as_markdown(post.body) %></p>
        </div>
         <!--
        <div class="card-footer">
