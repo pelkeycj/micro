@@ -20,8 +20,18 @@ import "phoenix_html"
 
 
 import socket from "./socket"
+import "./image_preview";
 
 let handlebars = require("handlebars");
+
+
+
+$(function() {
+    $('a#p1').miniPreview({ prefetch: 'pageload' });
+    $('a#p2').miniPreview({ prefetch: 'parenthover' });
+    $('a#p3').miniPreview({ prefetch: 'none' });
+});
+
 
 $(function() {
     if (!$("#likes-template").length > 0) {
