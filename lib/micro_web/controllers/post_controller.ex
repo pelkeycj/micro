@@ -10,7 +10,7 @@ defmodule MicroWeb.PostController do
   def index(conn, _params) do
     user = conn.assigns[:user]
     if user do
-      posts = Blog.list_posts(user)
+      posts = Enum.reverse(Blog.list_posts(user))
       render(conn, "index.html", posts: posts)
     else
       conn

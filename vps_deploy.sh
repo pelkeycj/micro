@@ -5,4 +5,4 @@
 bin/micro stop
 tar -xzvf micro.tar.gz &&
 bin/micro migrate &&
-PORT=8000 bin/micro start
+PORT=8000 bin/micro console &

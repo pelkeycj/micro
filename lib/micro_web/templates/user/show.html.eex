@@ -73,4 +73,4 @@
         </nav>
 
 
-<%= render MicroWeb.PostView, "index.html", [conn: @conn, posts: Micro.Blog.list_posts(@user), user: @user] %>
+<%= render MicroWeb.PostView, "index.html", [conn: @conn, posts: Micro.Blog.sort_posts_by_time(Micro.Blog.list_posts(@user)), user: @user] %>
