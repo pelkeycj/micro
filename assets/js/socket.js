@@ -5,7 +5,7 @@
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+let socket = new Socket("/socket", {params: {token: window.userToken}});
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -50,6 +50,10 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 //
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
+
+const showdown = require('showdown');
+const converter = new showdown.Converter();
+
 
 $(function() {
     let user = $("meta[name=user_channel]").attr("content");
@@ -131,7 +135,7 @@ $(function() {
                         "</h4>" +
                     "</a>" +
                     "<p class='card-text'> " +
-                        msg["post_body"] +
+                        converter.makeHtml(msg["post_body"]) +
                     "</p>" +
                 "</div>" +
             "</div>");
