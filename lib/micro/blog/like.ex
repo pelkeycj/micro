@@ -15,5 +15,7 @@ defmodule Micro.Blog.Like do
     like
     |> cast(attrs, [:user_id, :post_id])
     |> validate_required([:user_id, :post_id])
+    #|> unique_constraint(:user_id, :post_id)
+
   end
 end

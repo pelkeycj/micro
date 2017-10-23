@@ -23,7 +23,6 @@ import socket from "./socket"
 
 let handlebars = require("handlebars");
 
-//FIXME likes are not working
 $(function() {
     if (!$("#likes-template").length > 0) {
         console.log("wrong-page");
@@ -44,20 +43,20 @@ $(function() {
     //let buttonAdd = $($("#like-add-button"));
     //let buttonRemove = $($("#like-remove-button"));
     //let like_id = buttonRemove.data('like-id');
-    var like_id = null;
+    let like_id = null;
 
     function fetch_likes() {
+        console.log("fetch_likes");
         function got_likes(data) {
+            console.log("got_likes");
             let html = tmpl(data);
             div.html(html);
             if (user_likes_post(data)) {
-                console.log("liked");
-                button.click(remove_like);
+                button.off().click(remove_like);
                 button.text("unlike");
             }
             else {
-                console.log("not liked");
-                button.click(add_like);
+                button.off().click(add_like);
                 button.text("like");
             }
             set_like_count(data);
@@ -75,11 +74,13 @@ $(function() {
 
 
     function user_likes_post(data) {
+        console.log("user_likes_post");
         let liked = false;
         data.data.forEach(function(like) {
            if (like.user_id == user_id && like.post_id == post_id) {
                liked = true;
-               return;
+               like_id = like.id;
+               return liked;
            }
         });
 
@@ -87,8 +88,9 @@ $(function() {
     }
     
     function add_like() {
+        console.log("add_like");
+
         let data = {like: {post_id: post_id, user_id: user_id}};
-        console.log("adding . . . ");
         $.ajax({
             url: path,
             data: JSON.stringify(data),
@@ -96,22 +98,33 @@ $(function() {
             dataType: "json",
             method: "POST",
             success: fetch_likes,
+            error: fetch_likes,
         });
     }
 
     function remove_like() {
-        let data = {post_id: post_id,  user_id: user_id};
-        console.log("removing . . .");
+        console.log("remove_like");
+        let data;
+        if (like_id) {
+            data = {id: like_id};
+        }
+        else {
+            console.log("no like ? ");
+            return;
+        }
+
         $.ajax({
             url: path,
             data: data,
             dataType: "json",
             method: "DELETE",
             success: fetch_likes,
+            error: fetch_likes,
         });
     }
 
     function set_like_count(data) {
+        console.log("set_like_count");
         var count = data.data.length;
         var text = " likes";
         if (count === 1) {

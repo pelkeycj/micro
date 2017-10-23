@@ -16,6 +16,13 @@ defmodule MicroWeb.LikeController do
     render(conn, "index.json", likes: likes)
   end
 
+
+  def create(conn, %{"like" => like_params}) do
+    with {:ok, %Like{} = like} <- Blog.create_like(like_params) do
+      send_resp(conn, :no_content, "")
+    end
+  end
+
   def create(conn, %{"like" => like_params}) do
     IO.inspect(like_params)
     with {:ok, %Like{} = like} <- Blog.create_like(like_params) do
