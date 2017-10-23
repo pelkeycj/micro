@@ -32,7 +32,7 @@
                     </div>
                     <div class="card-body">
                         <a class="card-tag" href="<%= user_post_path(@conn, :show, post.user, post) %>"><h5 class="text-center"><strong> <%= post.title %> </strong></h4></a>
-                        <p><%= post.body %></p>
+                        <p><%= Micro.Blog.Post.as_markdown(post.body) %></p>
                     </div>
                     <div class="card-footer">
                         <p class="m-auto text-muted">posted: <%= post.inserted_at %></p>

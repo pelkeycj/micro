@@ -38,7 +38,7 @@
 
 <div class="col-md-8 ml-auto mr-auto mt-5">
     <p>
-        <%= @post.body %>
+        <%= Micro.Blog.Post.as_markdown(@post.body) %>
     </p>
 </div>
 

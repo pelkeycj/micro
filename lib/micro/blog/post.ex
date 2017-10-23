@@ -18,5 +18,21 @@ defmodule Micro.Blog.Post do
     post
     |> cast(attrs, [:title, :body])
     |> validate_required([:title, :body])
+    #|> strip_unsafe_md(attrs)
+  end
+
+  @docp """
+  def strip_unsafe_md(post, %{"body" => body}) do
+    {:safe, safe_body} = Phoenix.HTML.html_escape(body)
+    post
+    |> put_change(:body, safe_body)
+  end
+
+    """
+
+  def as_markdown(txt) do
+    txt
+    |> Earmark.as_html!()
+    |> Phoenix.HTML.raw()
   end
 end

@@ -23,10 +23,6 @@ import socket from "./socket"
 
 let handlebars = require("handlebars");
 
-//TODO refactor -> set button text by passing in new value
-                // -> set onClick during add and remove
-
-//FIXME likes are not working
 $(function() {
     if (!$("#likes-template").length > 0) {
         console.log("wrong-page");
@@ -47,15 +43,23 @@ $(function() {
     //let buttonAdd = $($("#like-add-button"));
     //let buttonRemove = $($("#like-remove-button"));
     //let like_id = buttonRemove.data('like-id');
-    var like_id = null;
+    let like_id = null;
 
     function fetch_likes() {
+        console.log("fetch_likes");
         function got_likes(data) {
-            console.log(data);
+            console.log("got_likes");
             let html = tmpl(data);
             div.html(html);
+            if (user_likes_post(data)) {
+                button.off().click(remove_like);
+                button.text("unlike");
+            }
+            else {
+                button.off().click(add_like);
+                button.text("like");
+            }
             set_like_count(data);
-            set_button_text(data);
         }
 
         $.ajax({
@@ -68,10 +72,25 @@ $(function() {
         });
     }
 
+
+    function user_likes_post(data) {
+        console.log("user_likes_post");
+        let liked = false;
+        data.data.forEach(function(like) {
+           if (like.user_id == user_id && like.post_id == post_id) {
+               liked = true;
+               like_id = like.id;
+               return liked;
+           }
+        });
+
+        return liked;
+    }
     
     function add_like() {
-        let data = {like: {post_id: post_id, user_id: user_id}};
+        console.log("add_like");
 
+        let data = {like: {post_id: post_id, user_id: user_id}};
         $.ajax({
             url: path,
             data: JSON.stringify(data),
@@ -79,11 +98,20 @@ $(function() {
             dataType: "json",
             method: "POST",
             success: fetch_likes,
+            error: fetch_likes,
         });
     }
 
     function remove_like() {
-        let data = {id: like_id};
+        console.log("remove_like");
+        let data;
+        if (like_id) {
+            data = {id: like_id};
+        }
+        else {
+            console.log("no like ? ");
+            return;
+        }
 
         $.ajax({
             url: path,
@@ -91,10 +119,12 @@ $(function() {
             dataType: "json",
             method: "DELETE",
             success: fetch_likes,
+            error: fetch_likes,
         });
     }
 
     function set_like_count(data) {
+        console.log("set_like_count");
         var count = data.data.length;
         var text = " likes";
         if (count === 1) {
@@ -113,6 +143,7 @@ $(function() {
                 button.text("unlike");
                 button.click(remove_like);
                 liked = true;
+                console.log(like_id)
                 return;
             }
         });
